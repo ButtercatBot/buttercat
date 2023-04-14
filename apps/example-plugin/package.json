@@ -1,5 +1,6 @@
 {
-	"name": "@buttercat/example-plugin",
+	"name": "@buttercatbot/example-plugin",
+	"private": true,
 	"version": "0.0.0",
 	"main": "./index.ts",
 	"types": "./index.ts",
@@ -10,12 +11,12 @@
 	},
 	"devDependencies": {
 		"eslint": "^7.32.0",
-		"@buttercat/eslint-config-custom": "*",
-		"@buttercat/tsconfig": "*",
+		"@buttercatbot/eslint-config-custom": "*",
+		"@buttercatbot/tsconfig": "*",
 		"typescript": "5.0.4"
 	},
 	"dependencies": {
-		"@buttercat/logger": "*",
-		"@buttercat/core": "*"
+		"@buttercatbot/logger": "*",
+		"@buttercatbot/core": "*"
 	}
 }

@@ -1,2 +1,2 @@
-import { getLogger } from '@buttercat/logger';
+import { getLogger } from '@buttercatbot/logger';
 export const log = getLogger({ name: 'core' });

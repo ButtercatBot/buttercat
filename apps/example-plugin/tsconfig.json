@@ -1,5 +1,5 @@
 {
-	"extends": "@buttercat/tsconfig/base.json",
+	"extends": "@buttercatbot/tsconfig/base.json",
 	"compilerOptions": {
 		"outDir": "dist"
 	},

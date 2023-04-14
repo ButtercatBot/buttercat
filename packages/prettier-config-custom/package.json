@@ -1,6 +1,7 @@
 {
-	"name": "@buttercat/prettier-config-custom",
+	"name": "@buttercatbot/prettier-config-custom",
 	"version": "0.0.0",
+	"private": true,
 	"main": "index.js",
 	"license": "MIT",
 	"devDependencies": {

@@ -1,6 +1,7 @@
 {
-	"name": "@buttercat/bot",
+	"name": "@buttercatbot/example-bot",
 	"version": "0.0.0",
+	"private": true,
 	"main": "./index.ts",
 	"types": "./index.ts",
 	"license": "MIT",
@@ -10,16 +11,16 @@
 		"start": "ts-node index.ts"
 	},
 	"dependencies": {
-		"@buttercat/core": "*",
-		"@buttercat/example-plugin": "*",
-		"@buttercat/logger": "*"
+		"@buttercatbot/core": "*",
+		"@buttercatbot/example-plugin": "*",
+		"@buttercatbot/logger": "*"
 	},
 	"devDependencies": {
 		"dotenv": "^16.0.3",
 		"eslint": "^7.32.0",
-		"@buttercat/eslint-config-custom": "*",
+		"@buttercatbot/eslint-config-custom": "*",
 		"ts-node": "^10.9.1",
-		"@buttercat/tsconfig": "*",
+		"@buttercatbot/tsconfig": "*",
 		"typescript": "5.0.4"
 	}
 }
