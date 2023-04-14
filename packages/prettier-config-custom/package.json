@@ -1,5 +1,5 @@
 {
-	"name": "@modularbot/prettier-config-custom",
+	"name": "@buttercat/prettier-config-custom",
 	"version": "0.0.0",
 	"main": "index.js",
 	"license": "MIT",

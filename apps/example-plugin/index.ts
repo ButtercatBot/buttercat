@@ -1,5 +1,5 @@
-import { MessageArgs, Plugin } from '@modularbot/core';
-import { getLogger } from '@modularbot/logger';
+import { MessageArgs, Plugin } from '@buttercat/core';
+import { getLogger } from '@buttercat/logger';
 
 const log = getLogger({ name: 'example-plugin' });
 

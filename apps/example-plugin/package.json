@@ -1,5 +1,5 @@
 {
-	"name": "@modularbot/example-plugin",
+	"name": "@buttercat/example-plugin",
 	"version": "0.0.0",
 	"main": "./index.ts",
 	"types": "./index.ts",
@@ -10,12 +10,12 @@
 	},
 	"devDependencies": {
 		"eslint": "^7.32.0",
-		"@modularbot/eslint-config-custom": "*",
-		"@modularbot/tsconfig": "*",
+		"@buttercat/eslint-config-custom": "*",
+		"@buttercat/tsconfig": "*",
 		"typescript": "5.0.4"
 	},
 	"dependencies": {
-		"@modularbot/logger": "*",
-		"@modularbot/core": "*"
+		"@buttercat/logger": "*",
+		"@buttercat/core": "*"
 	}
 }

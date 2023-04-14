@@ -1,7 +1,7 @@
-import { Bot } from '@modularbot/core';
+import { Bot } from '@buttercat/core';
 import { env } from './env';
-import examplePlugin from '@modularbot/example-plugin';
-import { getLogger } from '@modularbot/logger';
+import examplePlugin from '@buttercat/example-plugin';
+import { getLogger } from '@buttercat/logger';
 
 export const log = getLogger({ name: 'example-bot' });
 

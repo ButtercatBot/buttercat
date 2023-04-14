@@ -1,3 +1,3 @@
-# Modular Twitch Bot
+# Buttercat
 
 A modular Twitch bot
