@@ -31,3 +31,4 @@ dist
 # ide
 .idea
 *.iml!/apps/bot/.env
+.cmmiter

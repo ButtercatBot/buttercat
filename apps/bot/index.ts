@@ -1,4 +1,4 @@
-import { Bot, ChatUserstate } from 'core';
+import { Bot } from 'core';
 import { log } from 'logger';
 import { env } from './env';
 
@@ -10,26 +10,20 @@ const bot = Bot({
 	},
 });
 
-const handleMessage = async (
-	target: string,
-	userState: ChatUserstate,
-	msg: string,
-	self: boolean
-) => {
-	if (self) {
-		return;
-	}
-	log(`Message from ${userState.username}: ${msg}`);
-};
+bot.onConnect(() => {
+	log('Connected to Twitch');
+});
 
 bot.onSubscriberMessage((channel, userState, message) => {
 	log(`Subscriber message from ${userState.username}: ${message}`);
 });
 
-bot.client.on('connected', (_addr: string, _port: number) => {
-	log(`Connected to ${env.TWITCH_CHANNEL}'s chat`);
+bot.onModMessage((channel, userState, message) => {
+	log(`Moderator message from ${userState.username}: ${message}`);
 });
 
-bot.client.on('message', handleMessage);
+bot.onMessage((channel, userState, message) => {
+	log(`Message from ${userState.username}: ${message}`);
+});
 
 void bot.connect();

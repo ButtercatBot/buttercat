@@ -1,4 +1,4 @@
-import { ChatUserstate, Client, client, Userstate } from 'tmi.js';
+import { ChatUserstate, Client, client } from 'tmi.js';
 
 export * from 'tmi.js';
 
@@ -10,20 +10,23 @@ interface BotOptions {
 	};
 }
 
-export interface IBot {
+export type MessageCallback = (
+	channel: string,
+	userState: ChatUserstate,
+	message: string
+) => void;
+
+export interface BasicBot {
 	connect: () => Promise<void>;
 	say: (target: string, message: string) => Promise<void>;
 	client: Client;
-	onSubscriberMessage: (
-		callback: (
-			channel: string,
-			userState: ChatUserstate,
-			message: string
-		) => void
-	) => void;
+	onMessage: (callback: MessageCallback) => void;
+	onSubscriberMessage: (callback: MessageCallback) => void;
+	onModMessage: (callback: MessageCallback) => void;
+	onConnect: (callback: () => void) => void;
 }
 
-export function Bot(opts: BotOptions): IBot {
+export function Bot(opts: BotOptions): BasicBot {
 	const twitchClient = client(opts);
 
 	return {
@@ -36,13 +39,13 @@ export function Bot(opts: BotOptions): IBot {
 			await twitchClient.say(target, message);
 		},
 
-		onSubscriberMessage: (
-			callback: (
-				channel: string,
-				userState: ChatUserstate,
-				message: string
-			) => void
-		): void => {
+		onConnect: (callback) => {
+			twitchClient.on('connected', (_addr: string, _port: number) => {
+				callback();
+			});
+		},
+
+		onSubscriberMessage: (callback) => {
 			twitchClient.on(
 				'message',
 				(
@@ -58,6 +61,44 @@ export function Bot(opts: BotOptions): IBot {
 					if (userState.subscriber) {
 						callback(channel, userState, message);
 					}
+				}
+			);
+		},
+
+		onModMessage: (callback) => {
+			twitchClient.on(
+				'message',
+				(
+					channel: string,
+					userState: ChatUserstate,
+					message: string,
+					self: boolean
+				) => {
+					if (self) {
+						return;
+					}
+
+					if (userState.mod) {
+						callback(channel, userState, message);
+					}
+				}
+			);
+		},
+
+		onMessage: (callback) => {
+			twitchClient.on(
+				'message',
+				(
+					channel: string,
+					userState: ChatUserstate,
+					message: string,
+					self: boolean
+				) => {
+					if (self) {
+						return;
+					}
+
+					callback(channel, userState, message);
 				}
 			);
 		},
