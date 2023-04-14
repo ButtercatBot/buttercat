@@ -16,10 +16,6 @@
 			"dependsOn": ["^build"]
 		},
 		"lint": {
-			"outputs": []
-		},
-		"dev": {
-			"cache": false
 		}
 	}
 }

@@ -13,10 +13,10 @@
 		"eslint": "^7.32.0",
 		"@modularbot/eslint-config-custom": "*",
 		"@modularbot/tsconfig": "*",
-		"typescript": "5.0.4"
+		"typescript": "5.0.4",
+		"@types/tmi.js": "^1.8.3"
 	},
 	"dependencies": {
-		"@types/tmi.js": "^1.8.3",
 		"@modularbot/logger": "*",
 		"tmi.js": "^1.8.5",
 		"zod": "^3.21.4"

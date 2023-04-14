@@ -41,7 +41,12 @@ export class Bot implements BasicBot {
 			log.debug(
 				`Loading plugin '${plugin.name}' (${i + 1}/${this.plugins.length})`
 			);
-			this.loadPlugin(plugin);
+			try {
+				this.loadPlugin(plugin);
+			} catch (e) {
+				log.error(`Failed to load plugin '${plugin.name}'`);
+				log.error(e);
+			}
 		});
 		log.debug(`Loaded ${this.plugins.length} plugins`);
 
@@ -66,63 +71,63 @@ export class Bot implements BasicBot {
 	}
 
 	private async loadPlugin({
-		onMessage,
-		onSubscriberMessage,
-		onBroadcasterMessage,
-		onModMessage,
-		onMessageIgnoreRoles,
-		init,
-		name,
-		onConnect,
-	}: Plugin) {
-		if (init) {
-			log.trace(`${name}: init`);
-			await init();
-		}
+														 onMessage,
+														 onSubscriberMessage,
+														 onBroadcasterMessage,
+														 onModMessage,
+														 onMessageIgnoreRoles,
+														 init,
+														 name,
+														 onConnect,
+													 }: Plugin) {
+			if (init) {
+				log.trace(`${name}: init`);
+				await init();
+			}
 
-		if (
-			onMessage ||
-			onSubscriberMessage ||
-			onBroadcasterMessage ||
-			onModMessage
-		) {
-			log.trace(`${name}: setting up message handler`);
-			this.twitchClient.on('message', async (channel, userState, message) => {
-				const role = getUserRole(userState);
+			if (
+				onMessage ||
+				onSubscriberMessage ||
+				onBroadcasterMessage ||
+				onModMessage
+			) {
+				log.trace(`${name}: setting up message handler`);
+				this.twitchClient.on('message', async (channel, userState, message) => {
+					const role = getUserRole(userState);
 
-				if (onMessage) {
-					log.trace(`${name}: onMessage`);
-					if (!onMessageIgnoreRoles?.includes(role)) {
-						log.trace(`${name}: onMessage allowed role ${role}`);
-						await onMessage({ channel, userState, message });
-					} else {
-						log.trace(`${name}: onMessage ignored role ${role}`);
+					if (onMessage) {
+						log.trace(`${name}: onMessage`);
+						if (!onMessageIgnoreRoles?.includes(role)) {
+							log.trace(`${name}: onMessage allowed role ${role}`);
+							await onMessage({ channel, userState, message });
+						} else {
+							log.trace(`${name}: onMessage ignored role ${role}`);
+						}
 					}
-				}
 
-				if (onModMessage && role === 'mod') {
-					log.trace(`${name}: onModMessage`);
-					await onModMessage({ channel, userState, message });
-				}
+					if (onModMessage && role === 'mod') {
+						log.trace(`${name}: onModMessage`);
+						await onModMessage({ channel, userState, message });
+					}
 
-				if (onSubscriberMessage && role === 'subscriber') {
-					log.trace(`${name}: onSubscriberMessage`);
-					await onSubscriberMessage({ channel, userState, message });
-				}
+					if (onSubscriberMessage && role === 'subscriber') {
+						log.trace(`${name}: onSubscriberMessage`);
+						await onSubscriberMessage({ channel, userState, message });
+					}
 
-				if (onBroadcasterMessage && role === 'broadcaster') {
-					log.trace(`${name}: onBroadcasterMessage`);
-					await onBroadcasterMessage({ channel, userState, message });
-				}
-			});
+					if (onBroadcasterMessage && role === 'broadcaster') {
+						log.trace(`${name}: onBroadcasterMessage`);
+						await onBroadcasterMessage({ channel, userState, message });
+					}
+				});
 
-		}
+			}
 
-		if (onConnect) {
-			log.trace(`${name}: onConnect`);
-			this.twitchClient.on('connected', () => {
-				onConnect();
-			});
-		}
+			if (onConnect) {
+				log.trace(`${name}: onConnect`);
+				this.twitchClient.on('connected', () => {
+					onConnect();
+				});
+			}
 	}
 }
