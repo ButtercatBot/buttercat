@@ -10,97 +10,107 @@ interface BotOptions {
 	};
 }
 
-export type MessageCallback = (
-	channel: string,
-	userState: ChatUserstate,
-	message: string
-) => void;
+export type MessageArgs = {
+	channel: string;
+	userState: ChatUserstate;
+	message: string;
+};
 
-export interface BasicBot {
-	connect: () => Promise<void>;
-	say: (target: string, message: string) => Promise<void>;
-	client: Client;
-	onMessage: (callback: MessageCallback) => void;
-	onSubscriberMessage: (callback: MessageCallback) => void;
-	onModMessage: (callback: MessageCallback) => void;
-	onConnect: (callback: () => void) => void;
+export type UserType = 'chatter' | 'mod' | 'subscriber' | 'broadcaster';
+
+export interface Plugin {
+	onMessageIgnoreRoles?: UserType[];
+	onMessage?: (args: MessageArgs) => void;
+	onSubscriberMessage?: (args: MessageArgs) => void;
+	onModMessage?: (args: MessageArgs) => void;
+	onBroadcasterMessage?: (args: MessageArgs) => void;
+	onConnect?: () => void;
 }
 
-export function Bot(opts: BotOptions): BasicBot {
-	const twitchClient = client(opts);
+export interface BasicBot {
+	client: Client;
+	connect: () => Promise<this>;
+	say: (target: string, message: string) => Promise<void>;
+	addPlugin(plugin: Plugin): this;
+}
 
-	return {
-		client: twitchClient,
-		connect: async () => {
-			await twitchClient.connect();
-		},
+const getUserRole = (userState: ChatUserstate): UserType => {
+	if (userState.badges?.broadcaster) {
+		return 'broadcaster';
+	}
 
-		say: async (target: string, message: string): Promise<void> => {
-			await twitchClient.say(target, message);
-		},
+	if (userState.mod) {
+		return 'mod';
+	}
 
-		onConnect: (callback) => {
-			twitchClient.on('connected', (_addr: string, _port: number) => {
-				callback();
+	if (userState.subscriber) {
+		return 'subscriber';
+	}
+
+	return 'chatter';
+};
+
+export class Bot implements BasicBot {
+	private readonly twitchClient: Client;
+	private plugins: Plugin[] = [];
+
+	constructor(opts: BotOptions) {
+		this.twitchClient = client(opts);
+
+		this.twitchClient.on('message', (channel, userState, message) => {
+			this.plugins.forEach(
+				({
+					onMessage,
+					onSubscriberMessage,
+					onBroadcasterMessage,
+					onModMessage,
+					onMessageIgnoreRoles,
+				}) => {
+					if (onMessage) {
+						if (!onMessageIgnoreRoles?.includes(getUserRole(userState))) {
+							onMessage({ channel, userState, message });
+						}
+					}
+
+					if (onModMessage && userState.mod) {
+						onModMessage({ channel, userState, message });
+					}
+
+					if (onSubscriberMessage && userState.subscriber) {
+						onSubscriberMessage({ channel, userState, message });
+					}
+
+					if (onBroadcasterMessage && userState.badges?.broadcaster) {
+						onBroadcasterMessage({ channel, userState, message });
+					}
+				}
+			);
+		});
+
+		this.twitchClient.on('connected', () => {
+			this.plugins.forEach(({ onConnect }) => {
+				if (onConnect) {
+					onConnect();
+				}
 			});
-		},
+		});
+	}
 
-		onSubscriberMessage: (callback) => {
-			twitchClient.on(
-				'message',
-				(
-					channel: string,
-					userState: ChatUserstate,
-					message: string,
-					self: boolean
-				) => {
-					if (self) {
-						return;
-					}
+	get client(): Client {
+		return this.twitchClient;
+	}
 
-					if (userState.subscriber) {
-						callback(channel, userState, message);
-					}
-				}
-			);
-		},
+	async connect() {
+		await this.twitchClient.connect();
+		return this;
+	}
 
-		onModMessage: (callback) => {
-			twitchClient.on(
-				'message',
-				(
-					channel: string,
-					userState: ChatUserstate,
-					message: string,
-					self: boolean
-				) => {
-					if (self) {
-						return;
-					}
+	async say(target: string, message: string): Promise<void> {
+		await this.twitchClient.say(target, message);
+	}
 
-					if (userState.mod) {
-						callback(channel, userState, message);
-					}
-				}
-			);
-		},
-
-		onMessage: (callback) => {
-			twitchClient.on(
-				'message',
-				(
-					channel: string,
-					userState: ChatUserstate,
-					message: string,
-					self: boolean
-				) => {
-					if (self) {
-						return;
-					}
-
-					callback(channel, userState, message);
-				}
-			);
-		},
-	};
+	addPlugin(plugin: Plugin) {
+		this.plugins.push(plugin);
+		return this;
+	}
 }
