@@ -5,7 +5,7 @@ const log = getLogger({ name: 'example-plugin' });
 
 const examplePlugin: Plugin = {
 	name: 'Example Plugin',
-	onMessageIgnoreRoles: ['mod', 'broadcaster'],
+	onMessageIgnoreRoles: ['broadcaster'],
 
 	init: () => {
 		log.info('examplePlugin.init');
@@ -13,6 +13,10 @@ const examplePlugin: Plugin = {
 
 	onMessage: (args: MessageArgs) => {
 		log.info(`examplePlugin.onMessage from ${args.userState.username}`);
+	},
+
+	onModMessage: (args: MessageArgs) => {
+		log.info(`examplePlugin.onModMessage from ${args.userState.username}`);
 	},
 
 	onBroadcasterMessage: (args: MessageArgs) => {

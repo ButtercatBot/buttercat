@@ -15,3 +15,5 @@ export const getLogger = (
 ) => {
 	return mainLogger.getSubLogger(settings, logObj);
 };
+
+export { type ILogObj, type ISettingsParam, Logger };
