@@ -1,5 +1,5 @@
 {
-	"name": "bot",
+	"name": "@modularbot/bot",
 	"version": "0.0.0",
 	"main": "./index.ts",
 	"types": "./index.ts",
@@ -10,15 +10,16 @@
 		"start": "ts-node index.ts"
 	},
 	"dependencies": {
-		"core": "*",
-		"logger": "*"
+		"@modularbot/core": "*",
+		"@modularbot/example-plugin": "*",
+		"@modularbot/logger": "*"
 	},
 	"devDependencies": {
 		"dotenv": "^16.0.3",
 		"eslint": "^7.32.0",
-		"eslint-config-custom": "*",
+		"@modularbot/eslint-config-custom": "*",
 		"ts-node": "^10.9.1",
-		"tsconfig": "*",
+		"@modularbot/tsconfig": "*",
 		"typescript": "5.0.4"
 	}
 }

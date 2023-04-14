@@ -7,7 +7,9 @@ require('@rushstack/eslint-patch/modern-module-resolution');
 module.exports = {
 	extends: ['turbo', 'prettier'],
 	plugins: ['import', 'prettier'],
-	rules: {},
+	rules: {
+		'no-console': 'error',
+	},
 	ignorePatterns: ['*.d.ts', '*.ts.map'],
 	parser: '@typescript-eslint/parser',
 };

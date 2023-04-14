@@ -13,10 +13,10 @@
 	},
 	"devDependencies": {
 		"eslint": "7.32.0",
-		"eslint-config-custom": "*",
+		"@modularbot/eslint-config-custom": "*",
 		"husky": "^8.0.3",
 		"prettier": "^2.5.1",
-		"prettier-config-custom": "*",
+		"@modularbot/prettier-config-custom": "*",
 		"turbo": "^1.9.1"
 	},
 	"packageManager": "npm@8.19.4"

@@ -1,5 +1,5 @@
 {
-	"extends": "tsconfig/base.json",
+	"extends": "@modularbot/tsconfig/base.json",
 	"compilerOptions": {
 		"outDir": "dist"
 	},

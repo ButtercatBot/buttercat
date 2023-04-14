@@ -1,5 +1,5 @@
 {
-	"name": "logger",
+	"name": "@modularbot/logger",
 	"version": "0.0.0",
 	"main": "./index.ts",
 	"types": "./index.ts",
@@ -8,10 +8,13 @@
 		"lint": "eslint \"**/*.ts*\"",
 		"build": "tsc"
 	},
+	"dependencies": {
+		"tslog": "^4.8.2"
+	},
 	"devDependencies": {
 		"eslint": "^7.32.0",
-		"eslint-config-custom": "*",
-		"tsconfig": "*",
+		"@modularbot/eslint-config-custom": "*",
+		"@modularbot/tsconfig": "*",
 		"typescript": "5.0.4"
 	}
 }

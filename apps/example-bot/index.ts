@@ -1,6 +1,9 @@
-import { Bot } from 'core';
+import { Bot } from '@modularbot/core';
 import { env } from './env';
-import examplePlugin from 'example-plugin';
+import examplePlugin from '@modularbot/example-plugin';
+import { getLogger } from '@modularbot/logger';
+
+export const log = getLogger({ name: 'example-bot' });
 
 void new Bot({
 	channels: [env.TWITCH_CHANNEL],
@@ -10,4 +13,4 @@ void new Bot({
 	},
 })
 	.addPlugin(examplePlugin)
-	.connect();
+	.initialize();

@@ -1,19 +1,28 @@
-import { info } from 'logger';
-import { MessageArgs, Plugin } from 'core';
+import { MessageArgs, Plugin } from '@modularbot/core';
+import { getLogger } from '@modularbot/logger';
+
+const log = getLogger({ name: 'example-plugin' });
 
 const examplePlugin: Plugin = {
+	name: 'Example Plugin',
 	onMessageIgnoreRoles: ['mod', 'broadcaster'],
 
-	onMessage(args: MessageArgs) {
-		info(`examplePlugin.onMessage from ${args.userState.username}`);
+	init: () => {
+		log.info('examplePlugin.init');
 	},
 
-	onBroadcasterMessage(args: MessageArgs) {
-		info(`examplePlugin.onBroadcasterMessage from ${args.userState.username}`);
+	onMessage: (args: MessageArgs) => {
+		log.info(`examplePlugin.onMessage from ${args.userState.username}`);
 	},
 
-	onConnect() {
-		info('examplePlugin.onConnect');
+	onBroadcasterMessage: (args: MessageArgs) => {
+		log.info(
+			`examplePlugin.onBroadcasterMessage from ${args.userState.username}`
+		);
+	},
+
+	onConnect: () => {
+		log.info('examplePlugin.onConnect');
 	},
 };
 
