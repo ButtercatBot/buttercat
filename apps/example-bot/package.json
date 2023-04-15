@@ -18,7 +18,7 @@
 	"devDependencies": {
 		"dotenv": "^16.0.3",
 		"eslint": "^7.32.0",
-		"@buttercatbot/eslint-config-custom": "*",
+		"@buttercatbot/eslint-config": "*",
 		"ts-node": "^10.9.1",
 		"@buttercatbot/tsconfig": "*",
 		"typescript": "5.0.4"

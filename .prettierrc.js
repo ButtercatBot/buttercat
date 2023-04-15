@@ -1,1 +1,1 @@
-module.exports = require('@buttercatbot/prettier-config-custom');
+module.exports = require('@buttercatbot/prettier-config');

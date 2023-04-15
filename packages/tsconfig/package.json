@@ -1,8 +1,4 @@
 {
 	"name": "@buttercatbot/tsconfig",
-	"version": "0.0.0",
-	"private": true,
-	"publishConfig": {
-		"access": "restricted"
-	}
+	"version": "0.0.0"
 }

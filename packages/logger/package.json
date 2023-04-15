@@ -13,7 +13,7 @@
 	},
 	"devDependencies": {
 		"eslint": "^7.32.0",
-		"@buttercatbot/eslint-config-custom": "*",
+		"@buttercatbot/eslint-config": "*",
 		"@buttercatbot/tsconfig": "*",
 		"typescript": "5.0.4"
 	}
