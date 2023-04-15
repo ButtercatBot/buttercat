@@ -1,14 +1,9 @@
 {
 	"extends": "@buttercatbot/tsconfig/base.json",
 	"compilerOptions": {
-		"outDir": "dist"
+		"outDir": "dist/cjs"
 	},
 	"include": [
-		"."
+		"src/**/*.ts"
 	],
-	"exclude": [
-		"dist",
-		"build",
-		"node_modules"
-	]
 }

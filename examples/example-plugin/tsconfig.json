@@ -1,14 +1,9 @@
 {
 	"extends": "@buttercatbot/tsconfig/base.json",
 	"compilerOptions": {
-		"outDir": "dist"
+		"outDir": "dist/esm"
 	},
 	"include": [
-		"."
-	],
-	"exclude": [
-		"dist",
-		"build",
-		"node_modules"
+		"src/**/*.ts"
 	]
 }

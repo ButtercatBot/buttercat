@@ -32,3 +32,4 @@ dist
 .idea
 *.iml!/apps/bot/.env
 .cmmiter
+tsconfig.tsbuildinfo

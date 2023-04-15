@@ -1,8 +1,12 @@
 {
 	"name": "@buttercatbot/prettier-config",
-	"version": "0.0.0",
+	"version": "0.0.4",
 	"main": "index.js",
-	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MarcDonald/buttercat",
+		"directory": "packages/prettier-config"
+	},
 	"devDependencies": {
 		"prettier": "2.8.6"
 	}

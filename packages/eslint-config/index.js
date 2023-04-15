@@ -10,6 +10,6 @@ module.exports = {
 	rules: {
 		'no-console': 'error',
 	},
-	ignorePatterns: ['*.d.ts', '*.ts.map'],
+	ignorePatterns: ['*.d.ts', '*.ts.map', '*.tsbuildinfo'],
 	parser: '@typescript-eslint/parser',
 };

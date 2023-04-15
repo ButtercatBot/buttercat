@@ -2,12 +2,13 @@
 	"name": "@buttercatbot/example-plugin",
 	"private": true,
 	"version": "0.0.0",
-	"main": "./index.ts",
-	"types": "./index.ts",
-	"license": "MIT",
+	"main": "dist/index.js",
+	"module": "dist/esm/index.js",
 	"scripts": {
 		"lint": "eslint \"**/*.ts*\"",
-		"build": "tsc"
+		"build": "rm -rf dist/ && npm run build:esm && npm run build:cjs",
+		"build:esm": "tsc",
+		"build:cjs": "tsc --module CommonJS --outDir dist"
 	},
 	"devDependencies": {
 		"eslint": "^7.32.0",
