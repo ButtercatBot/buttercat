@@ -1,7 +1,7 @@
 {
 	"extends": [
 		"./tsconfig.json",
-		"@buttercatbot/tsconfig/base.module.json"
+		"@buttercatbot/tsconfig/module.json"
 	],
 	"compilerOptions": {
 		"outDir": "dist/esm",

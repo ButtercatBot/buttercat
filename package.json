@@ -3,7 +3,8 @@
 	"workspaces": [
 		"plugins/*",
 		"packages/*",
-		"examples/*"
+		"examples/*",
+		"apps/*"
 	],
 	"scripts": {
 		"build": "turbo build",

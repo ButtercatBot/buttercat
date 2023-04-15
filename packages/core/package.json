@@ -17,7 +17,6 @@
 	},
 	"devDependencies": {
 		"eslint": "^7.32.0",
-		"@buttercatbot/eslint-config": "*",
 		"@buttercatbot/tsconfig": "*",
 		"typescript": "5.0.4",
 		"@types/tmi.js": "^1.8.3"
