@@ -14,7 +14,7 @@
 	"module": "dist/esm/index.js",
 	"scripts": {
 		"lint": "eslint \"**/*.ts*\"",
-		"build": "rm -rf dist/ && prettier --write src/ && npm run build:esm && npm run build:cjs",
+		"build": "rm -rf dist/ && npm run build:esm && npm run build:cjs",
 		"build:esm": "tsc -p tsconfig.module.json",
 		"build:cjs": "tsc -p tsconfig.json"
 	},
