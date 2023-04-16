@@ -25,6 +25,12 @@ const examplePlugin: Plugin = {
 		);
 	},
 
+	onSubscriberMessage: (args: MessageArgs) => {
+		log.info(
+			`examplePlugin.onSubscriberMessage from ${args.userState.username}`
+		);
+	},
+
 	onConnect: () => {
 		log.info('examplePlugin.onConnect');
 	},

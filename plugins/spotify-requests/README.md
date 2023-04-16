@@ -1,0 +1,124 @@
+# Spotify Requests Plugin
+
+> **Note**
+> If you're only interested in using this as a bot, check out the [Standalone section](#standalone).
+
+## What is this?
+
+A plugin that listens to the chat of a given Twitch stream for messages with a Spotify song link in them and then
+adds that song to a playlist and/or your queue. The Spotify link must be at the start of the message in order to be
+picked up.
+
+✔️ Message that WOULD be picked up:
+
+```
+!prefix https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC?si=x-_FFgqBRB20mzW_lM7kDQ pls play this, it's a bop
+```
+
+❌ Message that WOULD NOT be picked up:
+
+```
+!prefix this is a bop can you please play this https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC?si=x-_FFgqBRB20mzW_lM7kDQ
+```
+
+## Setup
+
+### Spotify
+
+- Go to the [Spotify developer dashboard](https://developer.spotify.com/dashboard/)
+	and create a new application. The app can have whatever name and description you want
+
+	- Once the app is created, click on Edit Settings and add a redirect URL of
+		`http://localhost:8000/spotifyAuth` (or whatever port you set in the plugin settings)
+
+- The playlist ID can be found by either:
+
+	- Right-clicking on the playlist -> clicking Share -> Copy Spotify URI and then copying the ID
+		after `spotify:playlist:`
+		e.g. `spotify:playlist:{THIS_STRING_IS_THE_ID}`)
+
+	- Or by right-clicking on the playlist -> clicking Share -> Copy Link to Playlist and then copying the ID
+		after `https://open.spotify.com/playlist/` and before the `?si=`
+		e.g. `https://open.spotify.com/playlist/{THIS_STRING_IS_THE_ID}?si=12345123`)
+
+- If you have `addToQueue` toggled on, ensure you have the Spotify client open and that it is active (i.e. is playing
+	a song)
+
+- If there's a problem with Spotify authorization at any point, try deleting the
+	`spotify-auth-store.json` file and starting the app again
+
+### Chat
+
+If you wish to have chat feedback, you require a token which you can generate at
+[https://twitchapps.com/tmi/](https://twitchapps.com/tmi/)
+
+You must also set the bot username to the name of the account you wish to use (must be the same account you
+generate the
+OAuth token for)
+
+### Use as a Plugin
+
+#### Requirements
+
+- A spotify account
+
+#### Adding to Buttercat
+
+> **Note**
+> You can see an example of this in the `src/standalone.ts` file
+
+1. Install the plugin using `npm install @buttercatbot/plugin-spotify-requests`
+2. Create the plugin object and add it to Buttercat
+
+	```typescript
+	 const plugin = SpotifyRequestsPlugin({
+		 commandPrefix: string,
+		 spotify: {
+			 clientId: string;
+			 clientSecret: string;
+		 },
+		 authServer: {
+			 port: number;
+			 host: string;
+		 }
+	 });
+
+	 await myBot.addPlugin(plugin).initialize();
+	 ```
+
+### Standalone
+
+1. Download [Node.js](https://nodejs.org/en/)
+
+2. Clone the repo and navigate to the `plugins/spotify-requests` directory
+
+3. Run `npm install`
+
+4. Follow the steps in the [Setup](#setup) section
+
+5. Create a `./.env` file based on `./.env.template` file and fill in the fields
+
+	> **Warning**
+	> Do NOT commit this file to Git as it will contain SECRETS to log in as you!
+
+6. Run `npm run start-standalone` to start the bot
+
+7. Open the authorization link and give the app the required permissions
+
+8. Type a Spotify link in the chat (ensuring the link is the first piece of text in the message)
+   and make sure it shows up in your desired playlist (Spotify links should start
+   with `https://open.spotify.com/track/`)
+
+## Open Source Libraries Used
+
+### [Spotify Web API Node](https://github.com/thelinmichael/spotify-web-api-node)
+
+Used for connecting to and performing actions using Spotify
+
+MIT License
+
+### [Express](https://github.com/expressjs/express)
+
+Used for creating a temporary local web server to retrieve the callback from the Spotify authorization
+
+MIT License
