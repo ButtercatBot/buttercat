@@ -4,7 +4,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".contentlayer/generated"
   ],
   "exclude": [
     "node_modules"
@@ -14,6 +15,7 @@
       "name": "next",
     }],
     "paths": {
+      "contentlayer/generated": ["./.contentlayer/generated"],
       "@/*": [
         "./*"
       ]

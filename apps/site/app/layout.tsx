@@ -33,7 +33,6 @@ export default function RootLayout({
 			<body
 				className={cn(
 					` m-auto max-w-[1800px] relative min-h-screen bg-white font-sans text-slate-900 dark:bg-slate-800 dark:text-slate-50 flex flex-col`,
-					// eslint-disable-next-line turbo/no-undeclared-env-vars
 					process.env.NODE_ENV === 'production' ? '' : 'debug-screens'
 				)}
 			>

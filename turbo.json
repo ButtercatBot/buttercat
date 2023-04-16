@@ -8,6 +8,10 @@
 			"dependsOn": [
 				"^build"
 			],
+			"env": [
+				"NODE_ENV",
+				"NEXT_PUBLIC_APP_URL"
+			],
 			"outputs": [
 				"dist/**",
 				".next/**",

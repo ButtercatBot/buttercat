@@ -30,6 +30,7 @@ dist
 
 # ide
 .idea
-*.iml!/apps/bot/.env
+*.iml
+!/apps/bot/.env
 .cmmiter
 tsconfig.tsbuildinfo

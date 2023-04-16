@@ -1,12 +1,15 @@
 'use client';
 
 import React from 'react';
+import './layout.css';
 import { ScrollArea } from '@/components/ui/ScrollArea';
 import DocsHeader from '@/components/DocsHeader';
-import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import DocsCommandMenu from '@/components/DocsCommandMenu';
 import { cn } from '@/lib/utils';
+import { docsConfig } from '@/config/DocsConfig';
+import Link from 'next/link';
+import { useSelectedLayoutSegment } from 'next/navigation';
 
 export default function DocsLayout({
 	children,
@@ -30,7 +33,7 @@ export default function DocsLayout({
 			<DocsCommandMenu open={commandOpen} setOpen={setCommandOpen} />
 			<DocsHeader />
 			<div className={'flex-1 flex flex-col md:flex-row mt-2 gap-4 p-2'}>
-				<aside className={'p-2 hidden md:block'}>
+				<aside className={'p-2'}>
 					<Button
 						variant={'outline'}
 						className={'w-full flex justify-between mb-4'}
@@ -45,180 +48,49 @@ export default function DocsLayout({
 							<span className="text-xs">⌘</span>K
 						</kbd>
 					</Button>
-					<SideNav />
+					<SideNav className={'hidden md:block'} />
 				</aside>
-				<div className={'flex flex-col flex-1'}>
-					<main>{children}</main>
-				</div>
+				<div className={'flex flex-col flex-1'}>{children}</div>
 			</div>
 		</div>
 	);
 }
 
-function SideNav({
-	className,
-	closeSheet,
-}: {
-	className?: string;
-	closeSheet?: () => void;
-}) {
+function SideNav({ className }: { className?: string }) {
+	const segment = useSelectedLayoutSegment();
+
 	return (
-		<ScrollArea className={cn('w-52 h-72', className)}>
-			<ul className={'mt-4 flex flex-col gap-4'}>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-				<li onClick={closeSheet}>
-					<Link href="/docs/getting-started">Getting Started</Link>
-				</li>
-			</ul>
+		<ScrollArea className={cn('side-navbar', className)}>
+			{docsConfig.sidebarNav.map((section) => {
+				return (
+					<div key={section.title} className={'mb-2 p-1'}>
+						<p className={'font-bold text-lg'}>{section.title}</p>
+						<ul>
+							{section.items.map((item) => {
+								const itemFullSlug = `${section.root}${
+									item.slug ? '/' + item.slug : ''
+								}`;
+
+								return (
+									<li key={item.title}>
+										<Link
+											href={`docs/${itemFullSlug}`}
+											className={cn(
+												'dark:text-slate-400 dark:hover:text-slate-300',
+												segment === itemFullSlug
+													? 'dark:text-slate-200 font-semibold'
+													: ''
+											)}
+										>
+											{item.title}
+										</Link>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+				);
+			})}
 		</ScrollArea>
 	);
 }
