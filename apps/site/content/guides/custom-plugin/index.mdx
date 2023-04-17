@@ -1,0 +1,44 @@
+---
+title: Custom Plugin
+description: Make a custom plugin
+---
+
+1. Install `@buttercatbot/core` and optionally `@buttercatbot/logger`
+2. Create a new function of type `Plugin`
+
+   ```ts
+   import { Plugin } from '@buttercatbot/core';
+
+   export const myPlugin: Plugin = {
+   	name: 'My Cool Plugin',
+   };
+   ```
+
+3. Optionally set up the logger
+
+   ```ts
+   import { getLogger } from '@buttercatbot/logger';
+   const log = getLogger({ name: 'my-cool-plugin' });
+   ```
+
+4. Add whichever events you want to listen to
+
+   ```ts
+   import { Plugin } from '@buttercatbot/core';
+   import { getLogger } from '@buttercatbot/logger';
+
+   const log = getLogger({ name: 'my-cool-plugin' });
+   export const myPlugin: Plugin = {
+   	name: 'My Cool Plugin',
+
+   	init: () => {
+   		log.info('My Cool Plugin has been initialized!');
+   	},
+
+   	onMessage: (args: MessageArgs) => {
+   		log.info(`${args.userState.username} sent ${args.message}`);
+   	},
+   };
+   ```
+
+5. You're done! You can now add whatever functionality you want to your plugin and publish it (or just keep it to yourself).

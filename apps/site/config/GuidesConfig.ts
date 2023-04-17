@@ -9,18 +9,18 @@ type NavItem = {
 	slug: string;
 };
 
-type DocsConfig = {
+type GuidesConfig = {
 	sidebarNav: NavSection[];
 };
 
-export const docsConfig: DocsConfig = {
+export const guidesConfig: GuidesConfig = {
 	sidebarNav: [
 		{
 			title: 'Getting Started',
 			root: 'getting-started',
 			items: [
 				{
-					title: 'Introduction',
+					title: 'Create a Bot',
 					slug: '',
 				},
 				{
@@ -40,8 +40,8 @@ export const docsConfig: DocsConfig = {
 			],
 		},
 		{
-			title: 'Pre-made Plugins',
-			root: 'pre-made-plugins',
+			title: 'Plugins',
+			root: 'plugins',
 			items: [
 				{
 					title: 'Introduction',
@@ -55,3 +55,5 @@ export const docsConfig: DocsConfig = {
 		},
 	],
 };
+
+export default guidesConfig;

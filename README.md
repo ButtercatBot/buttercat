@@ -18,84 +18,18 @@ A modular, extensible, and easy to set up Twitch bot
 
 ## Set up a Buttercat bot
 
-1. Install `@buttercatbot/core`
-2. Create a new instance of the Bot class
+Check out the [Getting Started section of the docs](https://buttercat.dev/guides/getting-started) for more info on how to set up a Buttercat bot
 
-   ```ts
-   import { Bot } from '@buttercatbot/core';
+## Use a Pre-made Plugin
 
-   await new Bot({
-   	channels: ['mychannel'],
-   	identity: {
-   		username: 'mytwitchusername',
-   		password: 'mytwitchtoken',
-   	},
-   	logLevel: 2,
-   }).initialize();
-   ```
-
-3. Add whichever plugins you want to use
-
-   ```ts
-   import { Bot } from '@buttercatbot/core';
-   import examplePlugin from '@buttercatbot/example-plugin';
-
-   await new Bot({
-   	channels: ['mychannel'],
-   	identity: {
-   		username: 'mytwitchusername',
-   		password: 'mytwitchtoken',
-   	},
-   	logLevel: 2,
-   })
-   	.addPlugin(examplePlugin)
-   	.initialize();
-   ```
-
-Check out the [Example Bot](examples/example-bot) for a working example
+Check out the [Plugins section of the docs](https://buttercat.dev/guides/plugins) for more info on how to make your own plugin
 
 ## Make Your Own Plugin
 
-1. Install `@buttercatbot/core` and optionally `@buttercatbot/logger`
-2. Create a new function of type `Plugin`
-
-   ```ts
-   import { Plugin } from '@buttercatbot/core';
-
-   const myPlugin: Plugin = {
-   	name: 'My Cool Plugin',
-   };
-   ```
-
-3. Optionally set up the logger
-
-   ```ts
-   import { log } from '@buttercatbot/logger';
-   const log = getLogger({ name: 'my-cool-plugin' });
-   ```
-
-4. Add whichever events you want to listen to
-
-   ```ts
-   import { Plugin } from '@buttercatbot/core';
-   import { log } from '@buttercatbot/logger';
-
-   const log = getLogger({ name: 'my-cool-plugin' });
-   const myPlugin: Plugin = {
-   	name: 'My Cool Plugin',
-
-   	init: () => {
-   		log.info('My Cool Plugin has been initialized!');
-   	},
-
-   	onMessage: (args: MessageArgs) => {
-   		log.info(`${args.userState.username} sent ${args.message}`);
-   	},
-   };
-   ```
+Check out the [Custom Plugin section of the docs](https://buttercat.dev/guides/custom-plugin) for more info on how to make your own plugin
 
 ### Further Reading
 
-- Check out the [Example Plugin](examples/example-plugin) for a working example
+- Check out the [examples folder](examples) for working examples
 
-- Check out the [docs](https://buttercat.dev/docs) for more info on what you can do with plugins
+- Check out the [docs](https://buttercat.dev/guides) for more info on what you can do with plugins

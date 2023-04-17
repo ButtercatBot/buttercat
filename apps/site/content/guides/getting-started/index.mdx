@@ -1,0 +1,36 @@
+---
+title: Create a new Bot
+description: Get a Buttercat bot up and running
+---
+
+## Things you'll need
+
+- [Git](https://git-scm.com/downloads)
+- [Node.js 16 or higher](https://nodejs.org/en/download/)
+- [A Twitch account](https://www.twitch.tv/signup)
+- [A Twitch token](https://twitchapps.com/tmi/)
+
+## Setting up your bot
+
+1. Create a new JavaScript or TypeScript project
+2. Install `@buttercatbot/core` and optionally `@buttercatbot/logger`
+3. Create a new instance of the Bot class
+
+   ```ts
+   import { Bot } from '@buttercatbot/core';
+
+   await new Bot({
+   	channels: ['mychannel'],
+   	identity: {
+   		username: 'mytwitchusername',
+   		password: 'mytwitchtoken',
+   	},
+   	logLevel: 2,
+   }).initialize();
+   ```
+
+4. Run your project and see if it works
+
+## Links
+
+- Check out the [Example Bot](https://github.com/MarcDonald/buttercat/tree/main/examples/example-bot) for a working example

@@ -14,12 +14,12 @@ export default function Home() {
 						A modular, extensible, and easy to set up Twitch bot
 					</h1>
 					<div className={'flex flex-col gap-4'}>
-						<Link href={`/docs/getting-started`} className={'w-full'}>
+						<Link href={`/guides/getting-started`} className={'w-full'}>
 							<Button className={'w-full'} variant="default" tabIndex={-1}>
 								Get Started
 							</Button>
 						</Link>
-						<Link href={`/docs`} className={'w-full'}>
+						<Link href={`/guides`} className={'w-full'}>
 							<Button className={'w-full'} variant="outline" tabIndex={-1}>
 								Docs
 							</Button>

@@ -44,12 +44,15 @@ export class Bot implements BasicBot {
 			);
 			try {
 				this.loadPlugin(plugin);
+				log.debug(
+					`Loaded plugin '${plugin.name}' (${i + 1}/${this.plugins.length})`
+				);
 			} catch (e) {
 				log.error(`Failed to load plugin '${plugin.name}'`);
 				log.error(e);
 			}
 		});
-		log.debug(`Loaded ${this.plugins.length} plugins`);
+		log.info(`Loaded ${this.plugins.length} plugins`);
 
 		log.debug('Attempting to connect');
 		this.twitchClient.on('connected', () => {

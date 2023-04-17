@@ -17,7 +17,7 @@ export default function MainPageHeader() {
 			<HeaderLogo />
 			<NavigationMenu className={'justify-end px-2'}>
 				<NavigationMenuList>
-					<NavigationLink href={'/docs'}>Docs</NavigationLink>
+					<NavigationLink href={'/guides'}>Guides</NavigationLink>
 					<NavigationLink href={'https://github.com/MarcDonald/buttercat'}>
 						GitHub
 					</NavigationLink>

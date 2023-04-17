@@ -1,0 +1,61 @@
+---
+title: Add a Plugin
+description: Add some functionality to your bot
+---
+
+Once you've got your bot connected to Twitch, you'll want to add some functionality to it.
+This is where plugins come in.
+Plugins are small pieces of code that add functionality to your bot.
+They can do anything from playing music to telling your chat when it's a raining outside.
+
+## Adding a Plugin
+
+Adding a plugin is easy, for this example we'll be adding `example-plugin`, but you can add any plugin you want.
+
+1. Install the plugin with `npm install example-plugin`
+2. Call `addPlugin` on your bot instance and pass in the plugin
+
+   > **Note**
+   > Some plugins require additional configuration, check the plugin's documentation for more information.
+
+   ```ts
+   import { Bot } from '@buttercatbot/core';
+   import examplePlugin from '@buttercatbot/example-plugin';
+
+   await new Bot({
+   	channels: ['mychannel'],
+   	identity: {
+   		username: 'mytwitchusername',
+   		password: 'mytwitchtoken',
+   	},
+   	logLevel: 2,
+   })
+   	.addPlugin(examplePlugin)
+   	.initialize();
+   ```
+
+3. Start your bot and check that the plugin is loaded. You should see a message in your console.
+4. You're done! You can now use the plugin.
+5. If you want to add more plugins, you can chain `addPlugin` calls to add as many as you want
+
+   ```ts
+   import { Bot } from '@buttercatbot/core';
+   import examplePlugin from '@buttercatbot/example-plugin';
+   import examplePlugin2 from '@buttercatbot/example-plugin-2';
+
+   await new Bot({
+   	channels: ['mychannel'],
+   	identity: {
+   		username: 'mytwitchusername',
+   		password: 'mytwitchtoken',
+   	},
+   	logLevel: 2,
+   })
+   	.addPlugin(examplePlugin)
+   	.addPlugin(examplePlugin2)
+   	.initialize();
+   ```
+
+## Links
+
+- Check out the [Example Bot](https://github.com/MarcDonald/buttercat/tree/main/examples/example-bot) for a working example

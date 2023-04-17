@@ -8,19 +8,19 @@ import {
 	CommandList,
 } from '@/components/ui/Command';
 import { useRouter } from 'next/navigation';
-import { docsConfig } from '@/config/DocsConfig';
+import { guidesConfig } from '@/config/GuidesConfig';
 
-export default function DocsCommandMenu({
+export default function GuidesCommandMenu({
 	open,
 	setOpen,
 }: {
 	open: boolean;
 	setOpen: (open: boolean) => void;
 }) {
-	const [navSections] = React.useState(docsConfig.sidebarNav);
+	const [navSections] = React.useState(guidesConfig.sidebarNav);
 	return (
 		<CommandDialog open={open} onOpenChange={setOpen}>
-			<CommandInput placeholder="Search Documentation..." />
+			<CommandInput placeholder="Search Guides..." />
 			<CommandList>
 				<CommandEmpty>No results found.</CommandEmpty>
 				{navSections.map((section) => (
@@ -28,7 +28,7 @@ export default function DocsCommandMenu({
 						{section.items.map((item) => (
 							<CommandLink
 								key={`${section.root}/${item.slug}`}
-								href={`docs/${section.root}/${item.slug}`}
+								href={`guides/${section.root}/${item.slug}`}
 								label={item.title}
 								value={`${section.title} ${item.title}`}
 								setOpen={setOpen}

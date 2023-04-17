@@ -1,17 +1,17 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
 
-interface DocsPageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+interface GuidesPageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
 	heading: string;
 	text?: string;
 }
 
-export function DocsPageHeader({
+export function GuidePageHeader({
 	heading,
 	text,
 	className,
 	...props
-}: DocsPageHeaderProps) {
+}: GuidesPageHeaderProps) {
 	return (
 		<>
 			<div className={cn('space-y-4', className)} {...props}>
@@ -19,10 +19,10 @@ export function DocsPageHeader({
 					{heading}
 				</h1>
 				{text && (
-					<h2 className="text-xl text-slate-600 dark:text-slate-400">{text}</h2>
+					<p className="text-xl text-slate-600 dark:text-slate-400">{text}</p>
 				)}
 			</div>
-			<hr className="my-4 border-slate-200" />
+			<hr className="my-4 border-slate-200 dark:border-slate-600" />
 		</>
 	);
 }

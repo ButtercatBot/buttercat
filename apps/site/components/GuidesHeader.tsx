@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { GithubIcon } from 'lucide-react';
 import HeaderLogo from '@/components/HeaderLogo';
 
-export default function DocsHeader() {
+export default function GuidesHeader() {
 	return (
 		<header className={'flex flex-row gap-4 py-2'}>
 			<HeaderLogo />

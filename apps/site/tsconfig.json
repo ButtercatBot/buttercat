@@ -11,8 +11,9 @@
     "node_modules"
   ],
   "compilerOptions": {
+    "baseUrl": ".",
     "plugins": [{
-      "name": "next",
+      "name": "next"
     }],
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"],
