@@ -1,36 +1,67 @@
 'use client';
 
 import React from 'react';
-import {
-	NavigationMenu,
-	NavigationMenuItem,
-	NavigationMenuLink,
-	NavigationMenuList,
-	navigationMenuTriggerStyle,
-} from '@/components/ui/NavigationMenu';
 import Link from 'next/link';
-import { GithubIcon } from 'lucide-react';
+import { GithubIcon, MenuIcon } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 import HeaderLogo from '@/components/HeaderLogo';
+import {
+	Sheet,
+	SheetContent,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from '@/components/ui/Sheet';
+import GuidesNavigation from '@/components/GuidesNavigation';
 
-export default function GuidesHeader() {
+type GuidesHeaderProps = {
+	openCommandMenu: () => void;
+};
+
+export default function GuidesHeader(props: GuidesHeaderProps) {
 	return (
-		<header className={'flex flex-row gap-4 py-2'}>
-			<HeaderLogo />
-			<NavigationMenu className={'justify-end px-2'}>
-				<NavigationMenuList>
-					<NavigationMenuItem>
-						<Link
-							href={'https://github.com/MarcDonald/buttercat'}
-							legacyBehavior
-							passHref
-						>
-							<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-								<GithubIcon />
-							</NavigationMenuLink>
-						</Link>
-					</NavigationMenuItem>
-				</NavigationMenuList>
-			</NavigationMenu>
+		<header className={'flex flex-row gap-2 p-2 items-center'}>
+			<MobileNavMenu />
+			<HeaderLogo className={'hidden md:block'} />
+			<div className={'flex-1'}>
+				<Button
+					variant={'outline'}
+					className={'flex justify-between my-2 md:hidden w-full'}
+					onClick={props.openCommandMenu}
+				>
+					<span className={'block md:hidden'}>Search Guides</span>
+					<kbd
+						className={
+							'pointer-events-none hidden h-5 select-none items-center gap-1 rounded border border-slate-100 bg-slate-100 px-1.5 font-mono text-[10px] font-medium text-slate-600 opacity-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400 sm:flex'
+						}
+					>
+						<span className="text-xs">⌘</span>K
+					</kbd>
+				</Button>
+			</div>
+			<Link href={'https://github.com/MarcDonald/buttercat'} legacyBehavior>
+				<Button variant={'ghost'}>
+					<GithubIcon size={24} />
+				</Button>
+			</Link>
 		</header>
 	);
 }
+
+const MobileNavMenu = () => {
+	return (
+		<Sheet>
+			<SheetTrigger asChild className={'md:hidden'}>
+				<Button variant={'ghost'}>
+					<MenuIcon size={24} />
+				</Button>
+			</SheetTrigger>
+			<SheetContent position="left" size="xl">
+				<SheetHeader className={'mb-4'}>
+					<SheetTitle>Buttercat Guides</SheetTitle>
+				</SheetHeader>
+				<GuidesNavigation />
+			</SheetContent>
+		</Sheet>
+	);
+};

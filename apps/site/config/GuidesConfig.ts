@@ -34,7 +34,7 @@ export const guidesConfig: GuidesConfig = {
 			root: 'custom-plugin',
 			items: [
 				{
-					title: 'Introduction',
+					title: 'Make your own plugin',
 					slug: '',
 				},
 			],
@@ -44,7 +44,7 @@ export const guidesConfig: GuidesConfig = {
 			root: 'plugins',
 			items: [
 				{
-					title: 'Introduction',
+					title: 'Pre-made Plugins',
 					slug: '',
 				},
 				{
