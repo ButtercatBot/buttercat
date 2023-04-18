@@ -1,6 +1,6 @@
 import { allGuides } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
-import { Mdx } from '@/components/Mdx';
+import { Mdx } from '@/components/ui/Mdx';
 import { GuidePageHeader } from '@/components/GuidePageHeader';
 import { PageNotFoundError } from 'next/dist/shared/lib/utils';
 import { Metadata } from 'next';

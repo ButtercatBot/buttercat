@@ -3,8 +3,21 @@ title: Spotify Requests
 description: PepeJAM with your chat
 ---
 
-> **Note**
-> If you're only interested in using this as a bot, check out the [Standalone section](#standalone).
+import {
+	Alert,
+	AlertDescription,
+	AlertTitle,
+} from '../../../components/ui/Alert';
+import { Info } from 'lucide-react';
+
+<Alert>
+	<Info size={16} />
+	<AlertTitle>Note</AlertTitle>
+	<AlertDescription>
+		If you're only interested in using this as a bot, check out the [Standalone
+		section](#standalone).
+	</AlertDescription>
+</Alert>
 
 A plugin that listens to the chat of a given Twitch stream for messages with a Spotify song link in them and then
 adds that song to a playlist and/or your queue. The Spotify link must be at the start of the message in order to be
@@ -65,8 +78,14 @@ OAuth token for)
 
 #### Adding to Buttercat
 
-> **Note**
-> You can see an example of this in the `src/standalone.ts` file
+<br />
+<Alert>
+	<Info size={16} />
+	<AlertTitle>Note</AlertTitle>
+	<AlertDescription>
+		You can see an example of this in the `src/standalone.ts` file
+	</AlertDescription>
+</Alert>
 
 1. Install the plugin using `npm install @buttercatbot/spotify-requests`
 2. Create the plugin object and add it to Buttercat

@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/Button';
 import Image from 'next/image';
 import MainPageHeader from '@/components/MainPageHeader';
 import React from 'react';
+import { Skeleton } from '@/components/ui/Skeleton';
 
 export default function Home() {
 	return (
@@ -28,6 +29,7 @@ export default function Home() {
 				</div>
 				<div className={'flex-1 p-8'}>
 					<div className={'relative h-full w-full'}>
+						<Skeleton className={'h-full w-full'} />
 						<Image
 							className={'rounded-lg shadow-lg'}
 							src={'https://placekitten.com/2000/2000'}

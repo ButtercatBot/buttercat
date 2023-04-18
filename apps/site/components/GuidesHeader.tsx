@@ -20,12 +20,12 @@ type GuidesHeaderProps = {
 
 export default function GuidesHeader(props: GuidesHeaderProps) {
 	return (
-		<header className={'flex flex-row gap-2 p-2 items-center'}>
+		<header className={'flex flex-row gap-2 py-2 pr-2 items-center'}>
 			<MobileNavMenu />
 			<HeaderLogo className={'hidden md:block'} />
 			<div className={'flex-1'}>
 				<Button
-					variant={'outline'}
+					variant={'secondary'}
 					className={'flex justify-between my-2 md:hidden w-full'}
 					onClick={props.openCommandMenu}
 				>

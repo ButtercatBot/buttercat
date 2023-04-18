@@ -36,11 +36,11 @@ export default function GuidesLayout({
 				<div className={'flex-1 flex flex-col md:flex-row gap-4 p-2'}>
 					<aside
 						className={
-							'p-2 sticky top-0 hidden md:block md:h-screen max-h-screen bg-white dark:bg-slate-800 w-full md:w-56'
+							'p-2 sticky top-0 hidden md:block md:h-screen max-h-screen w-full md:w-56'
 						}
 					>
 						<Button
-							variant={'outline'}
+							variant={'secondary'}
 							className={'w-full flex justify-between my-2 md:mb-4'}
 							onClick={() => setCommandOpen((open) => !open)}
 						>

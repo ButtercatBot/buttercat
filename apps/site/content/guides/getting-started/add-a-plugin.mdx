@@ -3,6 +3,13 @@ title: Add a Plugin
 description: Add some functionality to your bot
 ---
 
+import {
+	Alert,
+	AlertDescription,
+	AlertTitle,
+} from '../../../components/ui/Alert';
+import { Info } from 'lucide-react';
+
 Once you've got your bot connected to Twitch, you'll want to add some functionality to it.
 This is where plugins come in.
 Plugins are small pieces of code that add functionality to your bot.
@@ -15,8 +22,15 @@ Adding a plugin is easy, for this example we'll be adding `example-plugin`, but 
 1. Install the plugin with `npm install example-plugin`
 2. Call `addPlugin` on your bot instance and pass in the plugin
 
-   > **Note**
-   > Some plugins require additional configuration, check the plugin's documentation for more information.
+   <br />
+   <Alert>
+   	<Info size={16} />
+   	<AlertTitle>Note</AlertTitle>
+   	<AlertDescription>
+   		Some plugins require additional configuration, check the plugin's
+   		documentation for more information.
+   	</AlertDescription>
+   </Alert>
 
    ```ts
    import { Bot } from '@buttercatbot/core';

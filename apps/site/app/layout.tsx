@@ -14,6 +14,10 @@ export const metadata: Metadata = {
 	title,
 	description,
 	keywords: ['twitch', 'streamer', 'bot', 'stream', 'chat', 'twitchtv', 'ttv'],
+	themeColor: [
+		{ media: '(prefers-color-scheme: light)', color: 'white' },
+		{ media: '(prefers-color-scheme: dark)', color: 'black' },
+	],
 	twitter: {
 		title,
 		description,
@@ -32,12 +36,14 @@ export default function RootLayout({
 		<html className={`${inter.className}`}>
 			<body
 				className={cn(
-					` m-auto max-w-[1800px] relative min-h-screen bg-white font-sans text-slate-900 dark:bg-slate-800 dark:text-slate-50 flex flex-col`,
+					`m-auto relative `,
 					process.env.NODE_ENV === 'production' ? '' : 'debug-screens'
 				)}
 			>
 				<WipBanner />
-				{children}
+				<div className={'max-w-[1800px] min-h-screen flex flex-col m-auto'}>
+					{children}
+				</div>
 			</body>
 		</html>
 	);
