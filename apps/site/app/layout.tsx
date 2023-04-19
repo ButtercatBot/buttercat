@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 import { cn } from '@/lib/utils';
 import { Inter } from 'next/font/google';
 import WipBanner from '@/components/WipBanner';
+import { Analytics } from '@vercel/analytics/react';
 
 const title = 'Buttercat';
 const description = 'A modular and extensible Twitch bot';
@@ -45,6 +46,7 @@ export default function RootLayout({
 					{children}
 				</div>
 			</body>
+			<Analytics />
 		</html>
 	);
 }
