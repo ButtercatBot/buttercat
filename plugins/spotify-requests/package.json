@@ -1,6 +1,6 @@
 {
 	"name": "@buttercatbot/spotify-requests",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/MarcDonald/buttercat",
@@ -30,19 +30,20 @@
 		"spotify-web-api-node": "5.0.2"
 	},
 	"devDependencies": {
-		"eslint": "^7.32.0",
 		"@buttercatbot/eslint-config": "*",
 		"@buttercatbot/tsconfig": "*",
-		"typescript": "5.0.4",
 		"@types/express": "4.17.17",
 		"@types/node": "18.15.10",
 		"@types/spotify-web-api-node": "5.0.7",
 		"@types/tmi.js": "1.8.3",
 		"@vitest/coverage-c8": "^0.29.8",
 		"dotenv": "16.0.3",
+		"eslint": "^7.32.0",
 		"nodemon": "2.0.22",
 		"prettier": "2.0.5",
 		"ts-node": "10.9.1",
+		"typescript": "5.0.4",
+		"vite": "^4.3.1",
 		"vitest": "^0.29.8",
 		"zod": "^3.21.4"
 	}

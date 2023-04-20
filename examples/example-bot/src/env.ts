@@ -21,7 +21,7 @@ if (!parsed.success) {
 }
 
 // noinspection JSUnusedGlobalSymbols
-let env = new Proxy(parsed.data, {
+const env = new Proxy(parsed.data, {
 	get(target, prop) {
 		const propParse = envSchema.keyof().safeParse(prop);
 		if (!propParse.success) return undefined;

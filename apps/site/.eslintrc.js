@@ -1,12 +1,9 @@
 module.exports = {
-	root: true,
-	// This tells ESLint to load the config from the package `eslint-config`
-	extends: ['@buttercatbot/eslint-config', 'next', 'plugin:mdx/recommended'],
+	extends: ['@buttercatbot/eslint-config', 'next'],
+	plugins: ['@next/eslint-plugin-next'],
 	settings: {
-		'mdx/code-blocks': true,
-		'mdx/language-mapper': {},
 		next: {
-			rootDir: ['apps/*/'],
+			rootDir: ['apps/*'],
 		},
 	},
 };

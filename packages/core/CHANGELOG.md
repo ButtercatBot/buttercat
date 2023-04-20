@@ -1,5 +1,11 @@
 # @buttercatbot/core
 
+## 0.1.0
+
+### Minor Changes
+
+- 964246a: Add say command to PluginActions
+
 ## 0.0.8
 
 ### Patch Changes

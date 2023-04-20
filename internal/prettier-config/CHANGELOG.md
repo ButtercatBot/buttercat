@@ -1,5 +1,11 @@
 # @buttercatbot/prettier-config
 
+## 0.0.5
+
+### Patch Changes
+
+- 964246a: Various updates to config
+
 ## 0.0.4
 
 ### Patch Changes
