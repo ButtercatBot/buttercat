@@ -5,11 +5,27 @@
 require('@rushstack/eslint-patch/modern-module-resolution');
 
 module.exports = {
-	extends: ['turbo', 'prettier'],
-	plugins: ['import', 'prettier'],
+	extends: ['plugin:@typescript-eslint/recommended', 'turbo', 'prettier'],
+	plugins: ['@typescript-eslint', 'import', 'prettier'],
 	rules: {
 		'no-console': 'error',
+		'no-used-vars': 'off',
+		'@typescript-eslint/no-unused-vars': [
+			'error',
+			{
+				argsIgnorePattern: '^_',
+				varsIgnorePattern: '^_',
+			},
+		],
 	},
+	overrides: [
+		{
+			files: ['*.test.ts'],
+			rules: {
+				'no-console': 'off',
+			},
+		},
+	],
 	ignorePatterns: ['*.d.ts', '*.ts.map', '*.tsbuildinfo'],
 	parser: '@typescript-eslint/parser',
 };

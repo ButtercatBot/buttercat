@@ -1,7 +1,7 @@
 import { Client, client } from 'tmi.js';
 import { log } from './logger';
 import { getUserRole } from './utils';
-import { Plugin } from './plugin';
+import { Actions, MessageArgs, Plugin } from './plugin';
 
 interface BotOptions {
 	channels: string[];
@@ -21,14 +21,21 @@ export interface BasicBot {
 
 export class Bot implements BasicBot {
 	private readonly twitchClient: Client;
-	private plugins: Plugin[] = [];
+	private pluginList: Plugin[] = [];
 
 	constructor(private readonly opts: BotOptions) {
 		log.settings.minLevel =
 			typeof opts.logLevel === 'number' ? opts.logLevel : 3;
 
 		log.info('Creating new bot instance');
-		this.twitchClient = client(opts);
+		this.twitchClient = client({
+			...opts,
+			logger: {
+				info: log.info,
+				warn: log.warn,
+				error: log.error,
+			},
+		});
 		log.debug('Created client');
 	}
 
@@ -36,23 +43,27 @@ export class Bot implements BasicBot {
 		return this.twitchClient;
 	}
 
+	get plugins() {
+		return this.pluginList;
+	}
+
 	async initialize() {
 		log.debug('Loading plugins');
-		this.plugins.forEach((plugin, i) => {
+		this.pluginList.forEach((plugin, i) => {
 			log.debug(
-				`Loading plugin '${plugin.name}' (${i + 1}/${this.plugins.length})`
+				`Loading plugin '${plugin.name}' (${i + 1}/${this.pluginList.length})`
 			);
 			try {
 				this.loadPlugin(plugin);
 				log.debug(
-					`Loaded plugin '${plugin.name}' (${i + 1}/${this.plugins.length})`
+					`Loaded plugin '${plugin.name}' (${i + 1}/${this.pluginList.length})`
 				);
 			} catch (e) {
 				log.error(`Failed to load plugin '${plugin.name}'`);
 				log.error(e);
 			}
 		});
-		log.info(`Loaded ${this.plugins.length} plugins`);
+		log.info(`Loaded ${this.pluginList.length} plugins`);
 
 		log.debug('Attempting to connect');
 		this.twitchClient.on('connected', () => {
@@ -70,7 +81,7 @@ export class Bot implements BasicBot {
 
 	addPlugin(plugin: Plugin) {
 		log.info(`Adding plugin ${plugin.name}`);
-		this.plugins.push(plugin);
+		this.pluginList.push(plugin);
 		return this;
 	}
 
@@ -98,12 +109,15 @@ export class Bot implements BasicBot {
 			log.trace(`${name}: setting up message handler`);
 			this.twitchClient.on('message', async (channel, userState, message) => {
 				const role = getUserRole(userState);
+				const messageArgs: MessageArgs = { channel, userState, message };
+				// TODO
+				const messageActions: Actions = {};
 
 				if (onMessage) {
 					log.trace(`${name}: onMessage`);
 					if (!onMessageIgnoreRoles?.includes(role)) {
 						log.trace(`${name}: onMessage allowed role ${role}`);
-						await onMessage({ channel, userState, message });
+						await onMessage(messageArgs, messageActions);
 					} else {
 						log.trace(`${name}: onMessage ignored role ${role}`);
 					}
@@ -111,17 +125,17 @@ export class Bot implements BasicBot {
 
 				if (onModMessage && role === 'mod') {
 					log.trace(`${name}: onModMessage`);
-					await onModMessage({ channel, userState, message });
+					await onModMessage(messageArgs, messageActions);
 				}
 
 				if (onSubscriberMessage && role === 'subscriber') {
 					log.trace(`${name}: onSubscriberMessage`);
-					await onSubscriberMessage({ channel, userState, message });
+					await onSubscriberMessage(messageArgs, messageActions);
 				}
 
 				if (onBroadcasterMessage && role === 'broadcaster') {
 					log.trace(`${name}: onBroadcasterMessage`);
-					await onBroadcasterMessage({ channel, userState, message });
+					await onBroadcasterMessage(messageArgs, messageActions);
 				}
 			});
 		}

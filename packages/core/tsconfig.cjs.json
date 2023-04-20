@@ -1,17 +1,13 @@
 {
 	"extends": "@buttercatbot/tsconfig/base.json",
 	"compilerOptions": {
-		"outDir": "dist",
-		"types": ["vitest/globals"],
-		"baseUrl": "src",
-		"paths": {
-			"@/*": ["*"]
-		}
+		"outDir": "dist"
 	},
 	"include": [
 		"src/**/*.ts"
 	],
 	"exclude": [
-		"node_modules/**"
+		"node_modules/**",
+		"src/**/*/test.ts"
 	]
 }

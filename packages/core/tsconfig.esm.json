@@ -1,5 +1,6 @@
 {
-	"extends": ["./tsconfig.json",
+	"extends": [
+		"./tsconfig.cjs.json",
 		"@buttercatbot/tsconfig/module.json"
 	],
 	"compilerOptions": {

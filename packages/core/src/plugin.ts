@@ -7,13 +7,16 @@ export type MessageArgs = {
 	message: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type Actions = {};
+
 export interface Plugin {
 	name: string;
 	init?: () => void;
 	onMessageIgnoreRoles?: UserType[];
-	onMessage?: (args: MessageArgs) => void;
-	onSubscriberMessage?: (args: MessageArgs) => void;
-	onModMessage?: (args: MessageArgs) => void;
-	onBroadcasterMessage?: (args: MessageArgs) => void;
+	onMessage?: (args: MessageArgs, actions: Actions) => void;
+	onSubscriberMessage?: (args: MessageArgs, actions: Actions) => void;
+	onModMessage?: (args: MessageArgs, actions: Actions) => void;
+	onBroadcasterMessage?: (args: MessageArgs, actions: Actions) => void;
 	onConnect?: () => void;
 }
