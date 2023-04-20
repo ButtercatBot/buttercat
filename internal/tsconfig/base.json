@@ -22,8 +22,7 @@
 			"dom"
 		],
 		"types": [
-			"node",
-			"vitest/globals"
+			"node"
 		]
 	},
 	"compileOnSave": false

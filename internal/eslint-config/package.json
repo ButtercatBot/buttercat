@@ -1,7 +1,7 @@
 {
 	"name": "@buttercatbot/eslint-config",
 	"version": "0.0.4",
-	"main": "./index.js",
+	"main": "index.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/MarcDonald/buttercat",

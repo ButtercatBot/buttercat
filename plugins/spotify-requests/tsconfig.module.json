@@ -2,6 +2,7 @@
 	"extends": [
 		"./tsconfig.json"
 	],
+	"typings": ["vitest/globals"],
 	"compilerOptions": {
 		"outDir": "dist/esm",
 		"target": "esnext",

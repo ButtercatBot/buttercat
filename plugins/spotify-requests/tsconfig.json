@@ -2,10 +2,10 @@
 	"extends": "@buttercatbot/tsconfig/base.json",
 	"compilerOptions": {
 		"outDir": "dist",
-		"types": ["vitest/globals"],
+		"types": ["vitest/globals"]
 	},
 	"include": [
-		"src/**/*.ts",
+		"src/**/*.ts"
 	],
 	"exclude": [
 		"node_modules",
