@@ -1,5 +1,11 @@
 # @buttercatbot/tsconfig
 
+## 0.0.7
+
+### Patch Changes
+
+- 964246a: Various updates to config
+
 ## 0.0.6
 
 ### Patch Changes
