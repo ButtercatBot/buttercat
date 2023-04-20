@@ -12,14 +12,17 @@
 	"scripts": {
 		"lint": "eslint \"**/*.ts*\"",
 		"build": "rm -rf dist/ && npm run build:esm && npm run build:cjs",
-		"build:esm": "tsc -p tsconfig.module.json",
-		"build:cjs": "tsc -p tsconfig.json"
+		"build:esm": "tsc -p tsconfig.esm.json",
+		"build:cjs": "tsc -p tsconfig.cjs.json",
+		"test": "vitest run"
 	},
 	"devDependencies": {
-		"eslint": "^7.32.0",
 		"@buttercatbot/tsconfig": "*",
+		"@total-typescript/shoehorn": "^0.1.0",
+		"@types/tmi.js": "^1.8.3",
+		"eslint": "^7.32.0",
 		"typescript": "5.0.4",
-		"@types/tmi.js": "^1.8.3"
+		"vitest": "^0.30.1"
 	},
 	"dependencies": {
 		"@buttercatbot/logger": "*",
