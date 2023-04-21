@@ -3,14 +3,15 @@ import { Button } from '@/components/ui/Button';
 import Image from 'next/image';
 import MainPageHeader from '@/components/MainPageHeader';
 import React from 'react';
-import { Skeleton } from '@/components/ui/Skeleton';
+import heroImage from './hero_image.png';
+import { AspectRatio } from '@/components/ui/AspectRatio';
 
 export default function Home() {
 	return (
 		<>
 			<MainPageHeader />
-			<main className="flex-1 grid grid-rows-2 md:grid-cols-2 md:grid-rows-none">
-				<div className={'p-8 flex flex-col justify-evenly'}>
+			<main className="flex-1 md:grid md:grid-cols-2 md:grid-rows-none place-content-center">
+				<div className={'p-8 flex flex-col justify-evenly gap-8'}>
 					<h1 className="font-display text-3xl font-extrabold text-black dark:text-white sm:text-5xl xl:text-7xl">
 						A modular, extensible, and easy to set up Twitch bot
 					</h1>
@@ -27,16 +28,17 @@ export default function Home() {
 						</Link>
 					</div>
 				</div>
-				<div className={'flex-1 p-8'}>
-					<div className={'relative h-full w-full'}>
-						<Skeleton className={'h-full w-full'} />
+				<div className={'flex-1'}>
+					<AspectRatio ratio={14 / 17} className={'relative h-full w-full'}>
 						<Image
-							className={'rounded-lg shadow-lg'}
-							src={'https://placekitten.com/2000/2000'}
-							alt={'Placeholder'}
+							className={'rounded-lg'}
+							src={heroImage}
+							alt={
+								'Example code snippet of Buttercat being set up with plugins'
+							}
 							fill
 						/>
-					</div>
+					</AspectRatio>
 				</div>
 			</main>
 		</>

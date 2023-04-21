@@ -18,7 +18,10 @@ export default function MainPageHeader() {
 			<NavigationMenu className={'justify-end px-2'}>
 				<NavigationMenuList>
 					<NavigationLink href={'/guides'}>Guides</NavigationLink>
-					<NavigationLink href={'https://github.com/MarcDonald/buttercat'}>
+					<NavigationLink
+						className={'hidden md:block'}
+						href={'https://github.com/MarcDonald/buttercat'}
+					>
 						GitHub
 					</NavigationLink>
 					<NavigationLink
@@ -32,9 +35,13 @@ export default function MainPageHeader() {
 	);
 }
 
-function NavigationLink(props: { href: string; children: React.ReactNode }) {
+function NavigationLink(props: {
+	href: string;
+	children: React.ReactNode;
+	className?: string;
+}) {
 	return (
-		<NavigationMenuItem>
+		<NavigationMenuItem className={props.className}>
 			<Link href={props.href} legacyBehavior passHref>
 				<NavigationMenuLink className={navigationMenuTriggerStyle()}>
 					{props.children}

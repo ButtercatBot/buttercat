@@ -41,7 +41,6 @@ export default function RootLayout({
 					process.env.NODE_ENV === 'production' ? '' : 'debug-screens'
 				)}
 			>
-				<WipBanner />
 				<div className={'max-w-[1800px] min-h-screen flex flex-col m-auto'}>
 					{children}
 				</div>
