@@ -14,7 +14,7 @@ export default function Home() {
 				</h1>
 				<div className={'flex flex-col gap-4'}>
 					<Link href={`/guides/getting-started`} className={'w-full'}>
-						<Button className={'w-full'} variant="default" tabIndex={-1}>
+						<Button className={'w-full'} tabIndex={-1}>
 							Get Started
 						</Button>
 					</Link>

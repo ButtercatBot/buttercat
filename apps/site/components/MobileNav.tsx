@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Link, { LinkProps } from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { SidebarOpen } from 'lucide-react';
 
 import { siteConfig } from '@/config/site';
@@ -10,6 +10,8 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 import { ScrollArea } from '@/components/ui/ScrollArea';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/Sheet';
+import { Separator } from '@/components/ui/Separator';
+import HeaderLogo from '@/components/HeaderLogo';
 
 export function MobileNav() {
 	const [open, setOpen] = React.useState(false);
@@ -28,13 +30,12 @@ export function MobileNav() {
 			<SheetContent size="xl" position="left" className="pr-0">
 				<MobileLink
 					href="/"
-					className="flex items-center"
+					className="flex items-center text-primary"
 					onOpenChange={setOpen}
 				>
-					{/*<Icons.logo className="mr-2 h-4 w-4" />*/}
-					<span className="font-bold">{siteConfig.name}</span>
+					<HeaderLogo />
 				</MobileLink>
-				<ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
+				<ScrollArea className="my-4 h-[calc(100vh-4rem)] pb-10 pl-6">
 					<div className="flex flex-col space-y-3">
 						{siteConfig.mainNav?.map(
 							(item) =>
@@ -49,10 +50,11 @@ export function MobileNav() {
 								)
 						)}
 					</div>
+					<Separator className={'mt-6'} />
 					<div className="flex flex-col space-y-2">
 						{siteConfig.sidebarNav.groups.map((group) => (
 							<div key={group.title} className="flex flex-col space-y-3 pt-6">
-								<h4 className="font-medium">{group.title}</h4>
+								<h4 className="font-bold text-primary">{group.title}</h4>
 								{group.items.map((item) => (
 									<React.Fragment key={item.href}>
 										{item.href ? (
@@ -87,6 +89,7 @@ function MobileLink({
 	...props
 }: MobileLinkProps) {
 	const router = useRouter();
+	const pathname = usePathname();
 	return (
 		<Link
 			href={href}
@@ -94,7 +97,10 @@ function MobileLink({
 				router.push(href.toString());
 				onOpenChange?.(false);
 			}}
-			className={cn(className)}
+			className={cn(
+				pathname === href ? 'text-primary' : 'text-primary/60',
+				className
+			)}
 			{...props}
 		>
 			{children}

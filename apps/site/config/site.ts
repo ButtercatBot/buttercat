@@ -9,8 +9,8 @@ export const siteConfig = {
 	},
 	creator: {
 		name: 'Marc Donald',
-		twitter: '@DeveloperMarc',
-		github: 'MarcDonald',
+		twitter: 'https://twitter.com/@DeveloperMarc',
+		github: 'https://github.com/MarcDonald',
 	},
 	mainNav: [
 		{
@@ -23,7 +23,7 @@ export const siteConfig = {
 		},
 		{
 			title: 'Examples',
-			href: '/examples',
+			href: 'https://github.com/MarcDonald/buttercat/tree/main/examples',
 		},
 		{
 			title: 'Plugins',
@@ -42,6 +42,10 @@ export const siteConfig = {
 				icon: LibraryIcon,
 				items: [
 					{
+						title: 'Introduction',
+						href: '/docs',
+					},
+					{
 						title: 'Bot',
 						href: '/docs/bot',
 					},
@@ -55,6 +59,10 @@ export const siteConfig = {
 				title: 'Guides',
 				icon: FileTextIcon,
 				items: [
+					{
+						title: 'Introduction',
+						href: '/guides',
+					},
 					{
 						title: 'Getting Started',
 						href: '/guides/getting-started',
@@ -73,6 +81,10 @@ export const siteConfig = {
 				title: 'Plugins',
 				icon: PuzzleIcon,
 				items: [
+					{
+						title: 'Introduction',
+						href: '/plugins',
+					},
 					{
 						title: 'Spotify Requests',
 						href: '/plugins/spotify-requests',

@@ -50,7 +50,7 @@ export default function RootLayout({
 		<html lang="en" suppressHydrationWarning className={`${inter.className}`}>
 			<body
 				className={cn(
-					'min-h-screen bg-background font-sans antialiased',
+					'min-h-screen bg-background font-sans antialiased scroll-smooth',
 					fontSans.variable,
 					process.env.NODE_ENV === 'production' ? '' : 'debug-screens'
 				)}
