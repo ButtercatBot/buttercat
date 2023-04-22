@@ -26,7 +26,7 @@ Check out the [Plugins section of the docs](https://buttercat.dev/guides/plugins
 
 ## Make Your Own Plugin
 
-Check out the [Custom Plugin section of the docs](https://buttercat.dev/guides/custom-plugin) for more info on how to make your own plugin
+Check out the [Create a Plugin section of the docs](https://buttercat.dev/guides/create-a-plugin) for more info on how to make your own plugin
 
 ### Further Reading
 

@@ -1,9 +1,8 @@
 import { allGuides } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
-import { Mdx } from '@/components/ui/Mdx';
-import { GuidePageHeader } from '@/components/GuidePageHeader';
-import { PageNotFoundError } from 'next/dist/shared/lib/utils';
 import { Metadata } from 'next';
+import React from 'react';
+import ContentPage from '@/components/ContentPage';
 
 interface GuidePageProps {
 	params: {
@@ -35,7 +34,7 @@ async function getGuideFromParams(params) {
 	const guide = allGuides.find((guide) => guide.slugAsParams === slug);
 
 	if (!guide) {
-		throw new PageNotFoundError(`/guides/${slug}`);
+		notFound();
 	}
 
 	return guide;
@@ -57,9 +56,11 @@ export default async function GuidePage({ params }: GuidePageProps) {
 	}
 
 	return (
-		<main className={'px-2'}>
-			<GuidePageHeader heading={guide.title} text={guide.description} />
-			<Mdx code={guide.body.code} />
-		</main>
+		<ContentPage
+			type={'Guide'}
+			title={params.slug ? guide.title : undefined}
+			description={guide.description}
+			mdx={guide.body}
+		/>
 	);
 }

@@ -16,6 +16,26 @@ const computedFields = {
 	},
 };
 
+export const Doc = defineDocumentType(() => ({
+	name: 'Doc',
+	filePathPattern: `docs/**/*.mdx`,
+	contentType: 'mdx',
+	fields: {
+		title: {
+			type: 'string',
+			required: true,
+		},
+		description: {
+			type: 'string',
+		},
+		published: {
+			type: 'boolean',
+			default: true,
+		},
+	},
+	computedFields,
+}));
+
 export const Guide = defineDocumentType(() => ({
 	name: 'Guide',
 	filePathPattern: `guides/**/*.mdx`,
@@ -36,9 +56,29 @@ export const Guide = defineDocumentType(() => ({
 	computedFields,
 }));
 
+export const Plugin = defineDocumentType(() => ({
+	name: 'Plugin',
+	filePathPattern: `plugins/**/*.mdx`,
+	contentType: 'mdx',
+	fields: {
+		title: {
+			type: 'string',
+			required: true,
+		},
+		description: {
+			type: 'string',
+		},
+		published: {
+			type: 'boolean',
+			default: true,
+		},
+	},
+	computedFields,
+}));
+
 export default makeSource({
 	contentDirPath: './content',
-	documentTypes: [Guide],
+	documentTypes: [Guide, Doc, Plugin],
 	mdx: {
 		remarkPlugins: [remarkGfm],
 		rehypePlugins: [
