@@ -2,7 +2,7 @@ import { allDocs } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import React from 'react';
-import ContentPage from '@/components/ContentPage';
+import ContentPage from '@/components/content-page';
 
 interface DocPageProps {
 	params: {

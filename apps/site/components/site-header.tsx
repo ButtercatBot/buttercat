@@ -2,12 +2,12 @@ import Link from 'next/link';
 
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/components/ui/Button';
-import CommandMenu from '@/components/AppCommandMenu';
+import { buttonVariants } from '@/components/ui/button';
+import CommandMenu from '@/components/app-command-menu';
 import { GithubIcon } from 'lucide-react';
-import { MainNav } from '@/components/MainNav';
-import { MobileNav } from '@/components/MobileNav';
-import ThemePicker from '@/components/ThemePicker';
+import { MainNav } from '@/components/main-nav';
+import { MobileNav } from '@/components/mobile-nav';
+import ThemePicker from '@/components/theme-picker';
 
 export function SiteHeader() {
 	return (

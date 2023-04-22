@@ -6,11 +6,11 @@ import { Metadata } from 'next';
 import { cn } from '@/lib/utils';
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
-import { ThemeProvider } from '@/components/ThemeProvider';
-import StyleSwitcher from '@/components/StyleSwitcher';
+import { ThemeProvider } from '@/components/theme-provider.tsx';
+import StyleSwitcher from '@/components/style-switcher';
 import { siteConfig } from '@/config/site';
 import { fontSans } from '@/lib/fonts';
-import { SiteHeader } from '@/components/SiteHeader';
+import { SiteHeader } from '@/components/site-header';
 
 export const metadata: Metadata = {
 	title: {

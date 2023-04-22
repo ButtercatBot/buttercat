@@ -3,16 +3,16 @@
 import * as React from 'react';
 import { useTheme } from 'next-themes';
 
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from '@/components/ui/DropdownMenu';
+} from '@/components/ui/dropdown-menu';
 import { LaptopIcon, MoonIcon, SunIcon } from 'lucide-react';
 
-export function ModeToggle() {
+export default function ThemePicker() {
 	const { setTheme } = useTheme();
 
 	return (

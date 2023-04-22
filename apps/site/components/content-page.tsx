@@ -1,8 +1,8 @@
 import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Balancer from 'react-wrap-balancer';
-import { Separator } from '@/components/ui/Separator';
-import { Mdx } from '@/components/ui/Mdx';
+import { Separator } from '@/components/ui/separator';
+import { Mdx } from '@/components/ui/mdx';
 import React from 'react';
 import { MDX } from 'contentlayer/generated';
 

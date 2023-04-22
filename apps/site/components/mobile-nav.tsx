@@ -7,11 +7,11 @@ import { SidebarOpen } from 'lucide-react';
 
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/Button';
-import { ScrollArea } from '@/components/ui/ScrollArea';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/Sheet';
-import { Separator } from '@/components/ui/Separator';
-import HeaderLogo from '@/components/HeaderLogo';
+import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Separator } from '@/components/ui/separator';
+import HeaderLogo from '@/components/header-logo';
 
 export function MobileNav() {
 	const [open, setOpen] = React.useState(false);

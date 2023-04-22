@@ -7,7 +7,7 @@ import { BotIcon, GithubIcon, Laptop, Moon, SunMedium } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import {
 	CommandDialog,
 	CommandEmpty,
@@ -16,7 +16,7 @@ import {
 	CommandItem,
 	CommandList,
 	CommandSeparator,
-} from '@/components/ui/Command';
+} from '@/components/ui/command';
 import { siteConfig } from '@/config/site';
 
 export default function AppCommandMenu({

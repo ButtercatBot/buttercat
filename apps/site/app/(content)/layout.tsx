@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import SidebarNav, { Group } from '@/components/SidebarNav';
-import { ScrollArea } from '@/components/ui/ScrollArea';
+import SidebarNav, { Group } from '@/components/sidebar-nav';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { notFound, useSelectedLayoutSegment } from 'next/navigation';
 
 export default function ContentLayout({
