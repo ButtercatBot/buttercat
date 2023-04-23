@@ -4,7 +4,7 @@
 	"main": "index.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/MarcDonald/buttercat",
+		"url": "https://github.com/buttercatbot/buttercat",
 		"directory": "packages/prettier-config"
 	},
 	"devDependencies": {

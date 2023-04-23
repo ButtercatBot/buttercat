@@ -5,7 +5,7 @@ export const siteConfig = {
 	url: 'https://buttercat.dev',
 	description: 'A modular and extensible Twitch bot',
 	links: {
-		github: 'https://github.com/marcdonald/buttercat',
+		github: 'https://github.com/buttercatbot/buttercat',
 	},
 	creator: {
 		name: 'Marc Donald',
@@ -23,7 +23,7 @@ export const siteConfig = {
 		},
 		{
 			title: 'Examples',
-			href: 'https://github.com/MarcDonald/buttercat/tree/main/examples',
+			href: 'https://github.com/buttercatbot/buttercat/tree/main/examples',
 		},
 		{
 			title: 'Plugins',
@@ -31,7 +31,7 @@ export const siteConfig = {
 		},
 		{
 			title: 'GitHub',
-			href: 'https://github.com/MarcDonald/buttercat',
+			href: 'https://github.com/buttercatbot/buttercat',
 			external: true,
 		},
 	],
