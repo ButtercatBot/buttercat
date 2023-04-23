@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { cn } from '@/lib/utils';
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
-import { ThemeProvider } from '@/components/theme-provider.tsx';
+import { ThemeProvider } from '@/components/theme-provider';
 import StyleSwitcher from '@/components/style-switcher';
 import { siteConfig } from '@/config/site';
 import { fontSans } from '@/lib/fonts';

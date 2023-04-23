@@ -21,8 +21,10 @@ export function MainNav() {
 				<Link
 					href="/docs"
 					className={cn(
-						'transition-colors hover:text-foreground/80',
-						pathname === '/docs' ? 'text-foreground' : 'text-foreground/60'
+						'transition-colors hover:text-foreground/80 dark:hover:text-secondary-foreground/80',
+						pathname === '/docs'
+							? 'text-foreground dark:text-accent-foreground'
+							: 'text-foreground/60'
 					)}
 				>
 					Documentation
@@ -30,10 +32,10 @@ export function MainNav() {
 				<Link
 					href="/guides"
 					className={cn(
-						'transition-colors hover:text-foreground/80',
-						pathname?.startsWith('/guides')
-							? 'text-foreground'
-							: 'text-foreground/60'
+						'transition-colors hover:text-foreground/80 dark:hover:text-secondary-foreground/80',
+						pathname === '/guides'
+							? 'text-foreground dark:text-accent-foreground'
+							: 'text-foreground/60 dark:text-foreground/60'
 					)}
 				>
 					Guides
@@ -41,9 +43,9 @@ export function MainNav() {
 				<Link
 					href="/plugins"
 					className={cn(
-						'transition-colors hover:text-foreground/80',
-						pathname?.startsWith('/plugins')
-							? 'text-foreground'
+						'transition-colors hover:text-foreground/80 dark:hover:text-secondary-foreground/80',
+						pathname === '/plugins'
+							? 'text-foreground dark:text-accent-foreground'
 							: 'text-foreground/60'
 					)}
 				>
@@ -52,7 +54,7 @@ export function MainNav() {
 				<Link
 					href={siteConfig.links.github}
 					className={cn(
-						'hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block'
+						'hidden text-foreground/60 transition-colors hover:text-foreground/80 dark:hover:text-secondary-foreground/80 lg:block'
 					)}
 				>
 					GitHub

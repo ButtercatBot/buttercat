@@ -29,8 +29,8 @@ export default function SidebarNav(props: SidebarNavProps) {
 								href={item.href}
 								className={cn(
 									pathname === `${item.href}`
-										? 'text-foreground'
-										: 'text-foreground/60 hover:text-primary/80'
+										? 'text-foreground dark:text-accent-foreground'
+										: 'text-foreground/60 hover:text-foreground/80 dark:hover:text-secondary-foreground/60'
 								)}
 							>
 								{item.title}

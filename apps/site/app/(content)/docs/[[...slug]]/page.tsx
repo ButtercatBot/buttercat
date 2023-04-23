@@ -29,7 +29,7 @@ export async function generateMetadata({
 	};
 }
 
-async function getDocFromParams(params) {
+async function getDocFromParams(params: { slug: string[] }) {
 	const slug = params.slug?.join('/') || '';
 	const doc = allDocs.find((doc) => doc.slugAsParams === slug);
 
