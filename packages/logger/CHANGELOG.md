@@ -1,5 +1,11 @@
 # @buttercatbot/logger
 
+## 0.0.10
+
+### Patch Changes
+
+- Update GitHub URLs
+
 ## 0.0.8
 
 ### Patch Changes

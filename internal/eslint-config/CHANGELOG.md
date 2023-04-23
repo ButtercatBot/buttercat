@@ -1,5 +1,11 @@
 # @buttercatbot/eslint-config
 
+## 0.0.6
+
+### Patch Changes
+
+- Update GitHub URLs
+
 ## 0.0.5
 
 ### Patch Changes

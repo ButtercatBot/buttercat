@@ -22,7 +22,7 @@ Check out the [Getting Started section of the docs](https://buttercat.dev/guides
 
 ## Use a Pre-made Plugin
 
-Check out the [Plugins section of the docs](https://buttercat.dev/guides/plugins) for more info on how to make your own plugin
+Check out the [Plugins section of the docs](https://buttercat.dev/plugins) for some pre-made plugins
 
 ## Make Your Own Plugin
 
@@ -32,4 +32,4 @@ Check out the [Create a Plugin section of the docs](https://buttercat.dev/guides
 
 - Check out the [examples folder](examples) for working examples
 
-- Check out the [docs](https://buttercat.dev/guides) for more info on what you can do with plugins
+- Check out the [docs](https://buttercat.dev/docs) for more info on what you can do with plugins

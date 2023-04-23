@@ -1,5 +1,13 @@
 # @buttercatbot/core
 
+## 0.1.1
+
+### Patch Changes
+
+- Update GitHub URLs
+- Updated dependencies
+  - @buttercatbot/logger@0.0.10
+
 ## 0.1.0
 
 ### Minor Changes
