@@ -4,6 +4,7 @@ import { cva } from 'class-variance-authority';
 import { ChevronDown } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const NavigationMenu = React.forwardRef<
 	React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -115,6 +116,37 @@ const NavigationMenuIndicator = React.forwardRef<
 NavigationMenuIndicator.displayName =
 	NavigationMenuPrimitive.Indicator.displayName;
 
+const NavigationLink = React.forwardRef<
+	React.ElementRef<typeof Link>,
+	React.ComponentPropsWithoutRef<typeof Link> & {
+		selected?: boolean;
+		selectedClassName?: string;
+	}
+>(
+	(
+		{ href, className, selected, selectedClassName, children, ...props },
+		ref
+	) => {
+		return (
+			<Link
+				ref={ref}
+				href={href}
+				className={cn(
+					'text-sm font-medium transition-colors dark:hover:text-primary hover:text-foreground',
+					selected
+						? cn('text-foreground', selectedClassName)
+						: 'text-muted-foreground',
+					className
+				)}
+				{...props}
+			>
+				{children}
+			</Link>
+		);
+	}
+);
+NavigationLink.displayName = 'NavigationLink';
+
 export {
 	navigationMenuTriggerStyle,
 	NavigationMenu,
@@ -125,4 +157,5 @@ export {
 	NavigationMenuLink,
 	NavigationMenuIndicator,
 	NavigationMenuViewport,
+	NavigationLink,
 };

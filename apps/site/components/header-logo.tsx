@@ -1,13 +1,13 @@
-import Link from 'next/link';
 import React from 'react';
-import { cn } from '@/lib/utils';
+import { NavigationLink } from '@/components/ui/navigation-menu';
 
-export default function HeaderLogo({ className }: { className?: string }) {
+export default function HeaderLogo() {
 	return (
-		<div className={cn('grid place-content-center pl-4', className)}>
-			<Link href={'/'} className={'font-bold text-xl md:text-3xl'}>
-				Buttercat
-			</Link>
-		</div>
+		<NavigationLink
+			href={'/'}
+			className={'hidden font-bold sm:inline-block mr-4'}
+		>
+			Buttercat
+		</NavigationLink>
 	);
 }

@@ -63,7 +63,7 @@ const components = {
 	a: ({ className, ...props }) => (
 		<a
 			className={cn(
-				'font-medium text-foreground underline underline-offset-4 hover:text-accent-foreground',
+				'font-medium text-foreground underline underline-offset-4 hover:text-primary',
 				className
 			)}
 			{...props}

@@ -1,8 +1,8 @@
 import { usePathname } from 'next/navigation';
 import { siteConfig } from '@/config/site';
-import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import React from 'react';
+import { NavigationLink } from '@/components/ui/navigation-menu';
 
 export type Group = 'Guides' | 'Docs' | 'Plugins';
 export type SidebarNavProps = {
@@ -25,16 +25,18 @@ export default function SidebarNav(props: SidebarNavProps) {
 				{group.items.map((item) => {
 					return (
 						<li key={item.title}>
-							<Link
+							<NavigationLink
 								href={item.href}
-								className={cn(
-									pathname === `${item.href}`
-										? 'text-foreground dark:text-accent-foreground'
-										: 'text-foreground/60 hover:text-foreground/80 dark:hover:text-secondary-foreground/60'
+								selected={pathname === `${item.href}`}
+								className={
+									'flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:underline hover:text-foreground'
+								}
+								selectedClassName={cn(
+									'flex w-full items-center rounded-md border px-2 py-1.5 hover:underline font-medium bg-accent border-border text-accent-foreground hover:text-foreground dark:hover:text-background'
 								)}
 							>
 								{item.title}
-							</Link>
+							</NavigationLink>
 						</li>
 					);
 				})}

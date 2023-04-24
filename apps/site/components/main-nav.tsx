@@ -1,64 +1,35 @@
 'use client';
 
 import * as React from 'react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/utils';
+import { NavigationLink } from '@/components/ui/navigation-menu';
+import HeaderLogo from '@/components/header-logo';
 
 export function MainNav() {
 	const pathname = usePathname();
 
 	return (
 		<div className="mr-4 hidden md:flex">
-			<Link href="/" className="mr-6 flex items-center space-x-2">
-				<span className="hidden font-bold sm:inline-block">
-					{siteConfig.name}
-				</span>
-			</Link>
+			<HeaderLogo />
 			<nav className="flex items-center space-x-6 text-sm font-medium">
-				<Link
-					href="/docs"
-					className={cn(
-						'transition-colors hover:text-foreground/80 dark:hover:text-secondary-foreground/80',
-						pathname.startsWith('/docs')
-							? 'text-foreground dark:text-accent-foreground'
-							: 'text-foreground/60'
-					)}
-				>
+				<NavigationLink href="/docs" selected={pathname.startsWith('/docs')}>
 					Documentation
-				</Link>
-				<Link
+				</NavigationLink>
+				<NavigationLink
 					href="/guides"
-					className={cn(
-						'transition-colors hover:text-foreground/80 dark:hover:text-secondary-foreground/80',
-						pathname.startsWith('/guides')
-							? 'text-foreground dark:text-accent-foreground'
-							: 'text-foreground/60 dark:text-foreground/60'
-					)}
+					selected={pathname.startsWith('/guides')}
 				>
 					Guides
-				</Link>
-				<Link
+				</NavigationLink>
+				<NavigationLink
 					href="/plugins"
-					className={cn(
-						'transition-colors hover:text-foreground/80 dark:hover:text-secondary-foreground/80',
-						pathname.startsWith('/plugins')
-							? 'text-foreground dark:text-accent-foreground'
-							: 'text-foreground/60'
-					)}
+					selected={pathname.startsWith('/plugins')}
 				>
 					Plugins
-				</Link>
-				<Link
-					href={siteConfig.links.github}
-					className={cn(
-						'hidden text-foreground/60 transition-colors hover:text-foreground/80 dark:hover:text-secondary-foreground/80 lg:block'
-					)}
-				>
-					GitHub
-				</Link>
+				</NavigationLink>
+				<NavigationLink href={siteConfig.links.github}>GitHub</NavigationLink>
 			</nav>
 		</div>
 	);

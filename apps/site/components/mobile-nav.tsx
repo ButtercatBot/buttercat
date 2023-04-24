@@ -1,17 +1,16 @@
 'use client';
 
 import * as React from 'react';
-import Link, { LinkProps } from 'next/link';
+import { LinkProps } from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { SidebarOpen } from 'lucide-react';
 
 import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Separator } from '@/components/ui/separator';
-import HeaderLogo from '@/components/header-logo';
+import { NavigationLink } from '@/components/ui/navigation-menu';
 
 export function MobileNav() {
 	const pathname = usePathname();
@@ -34,7 +33,7 @@ export function MobileNav() {
 					className="flex items-center text-foreground"
 					onOpenChange={setOpen}
 				>
-					<HeaderLogo />
+					Buttercat
 				</MobileLink>
 				<ScrollArea className="my-4 h-[calc(100vh-4rem)] pb-16 pl-6">
 					<div className="flex flex-col space-y-3">
@@ -90,26 +89,22 @@ interface MobileLinkProps extends LinkProps {
 function MobileLink({
 	href,
 	onOpenChange,
-	className,
 	children,
 	...props
 }: MobileLinkProps) {
 	const router = useRouter();
 	const pathname = usePathname();
 	return (
-		<Link
+		<NavigationLink
 			href={href}
 			onClick={() => {
 				router.push(href.toString());
 				onOpenChange?.(false);
 			}}
-			className={cn(
-				pathname === href ? 'text-foreground' : 'text-foreground/60',
-				className
-			)}
+			selected={pathname === href}
 			{...props}
 		>
 			{children}
-		</Link>
+		</NavigationLink>
 	);
 }
