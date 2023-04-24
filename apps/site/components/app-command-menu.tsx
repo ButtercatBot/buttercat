@@ -67,6 +67,7 @@ export default function AppCommandMenu({
 							{group.items.map((navItem) => {
 								return (
 									<CommandItem
+										value={`${group.title}/${navItem.title}`}
 										key={`${group.title}/${navItem.title}`}
 										onSelect={() => {
 											runCommand(() => router.push(navItem.href));

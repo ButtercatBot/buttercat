@@ -22,7 +22,7 @@ export function MainNav() {
 					href="/docs"
 					className={cn(
 						'transition-colors hover:text-foreground/80 dark:hover:text-secondary-foreground/80',
-						pathname === '/docs'
+						pathname.startsWith('/docs')
 							? 'text-foreground dark:text-accent-foreground'
 							: 'text-foreground/60'
 					)}
@@ -33,7 +33,7 @@ export function MainNav() {
 					href="/guides"
 					className={cn(
 						'transition-colors hover:text-foreground/80 dark:hover:text-secondary-foreground/80',
-						pathname === '/guides'
+						pathname.startsWith('/guides')
 							? 'text-foreground dark:text-accent-foreground'
 							: 'text-foreground/60 dark:text-foreground/60'
 					)}
@@ -44,7 +44,7 @@ export function MainNav() {
 					href="/plugins"
 					className={cn(
 						'transition-colors hover:text-foreground/80 dark:hover:text-secondary-foreground/80',
-						pathname === '/plugins'
+						pathname.startsWith('/plugins')
 							? 'text-foreground dark:text-accent-foreground'
 							: 'text-foreground/60'
 					)}

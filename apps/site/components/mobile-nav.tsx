@@ -14,6 +14,7 @@ import { Separator } from '@/components/ui/separator';
 import HeaderLogo from '@/components/header-logo';
 
 export function MobileNav() {
+	const pathname = usePathname();
 	const [open, setOpen] = React.useState(false);
 
 	return (
@@ -21,7 +22,7 @@ export function MobileNav() {
 			<SheetTrigger asChild>
 				<Button
 					variant="ghost"
-					className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+					className="mr-4 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
 				>
 					<SidebarOpen className="h-6 w-6" />
 					<span className="sr-only">Toggle Menu</span>
@@ -30,12 +31,12 @@ export function MobileNav() {
 			<SheetContent size="xl" position="left" className="pr-0">
 				<MobileLink
 					href="/"
-					className="flex items-center text-primary"
+					className="flex items-center text-foreground"
 					onOpenChange={setOpen}
 				>
 					<HeaderLogo />
 				</MobileLink>
-				<ScrollArea className="my-4 h-[calc(100vh-4rem)] pb-10 pl-6">
+				<ScrollArea className="my-4 h-[calc(100vh-4rem)] pb-16 pl-6">
 					<div className="flex flex-col space-y-3">
 						{siteConfig.mainNav?.map(
 							(item) =>
@@ -44,6 +45,11 @@ export function MobileNav() {
 										key={item.href}
 										href={item.href}
 										onOpenChange={setOpen}
+										className={
+											pathname.startsWith(item.href)
+												? 'text-foreground'
+												: 'text-foreground/60'
+										}
 									>
 										{item.title}
 									</MobileLink>
@@ -54,7 +60,7 @@ export function MobileNav() {
 					<div className="flex flex-col space-y-2">
 						{siteConfig.sidebarNav.groups.map((group) => (
 							<div key={group.title} className="flex flex-col space-y-3 pt-6">
-								<h4 className="font-bold text-primary">{group.title}</h4>
+								<h4 className="font-bold text-foreground">{group.title}</h4>
 								{group.items.map((item) => (
 									<React.Fragment key={item.href}>
 										{item.href ? (
@@ -98,7 +104,7 @@ function MobileLink({
 				onOpenChange?.(false);
 			}}
 			className={cn(
-				pathname === href ? 'text-primary' : 'text-primary/60',
+				pathname === href ? 'text-foreground' : 'text-foreground/60',
 				className
 			)}
 			{...props}
