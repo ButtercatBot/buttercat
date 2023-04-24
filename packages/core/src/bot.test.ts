@@ -1,5 +1,5 @@
 import { Bot } from './bot';
-import { beforeEach, vitest } from 'vitest';
+import { afterEach, beforeEach, vitest } from 'vitest';
 import { Client, client } from 'tmi.js';
 import { fromPartial } from '@total-typescript/shoehorn';
 
@@ -9,14 +9,16 @@ const clientMock = vi.mocked(client);
 
 suite('Bot', () => {
 	beforeEach(() => {
-		vi.resetAllMocks();
-
 		clientMock.mockImplementation(() =>
 			fromPartial<Client>({
 				connect: vi.fn(),
 				on: vi.fn(),
 			})
 		);
+	});
+
+	afterEach(() => {
+		vi.resetAllMocks();
 	});
 
 	test('no plugins', async () => {

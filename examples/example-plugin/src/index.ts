@@ -1,4 +1,4 @@
-import { Plugin } from '@buttercatbot/core';
+import { MessageArgs, Plugin } from '@buttercatbot/core';
 import { getLogger } from '@buttercatbot/logger';
 
 const log = getLogger({ name: 'example-plugin' });
@@ -11,22 +11,22 @@ const examplePlugin: Plugin = {
 		log.info('examplePlugin.init');
 	},
 
-	onMessage: (args) => {
+	onMessage: (args: MessageArgs) => {
 		log.info(`examplePlugin.onMessage from ${args.userState.username}`);
 	},
 
-	onModMessage: (args) => {
+	onModMessage: (args: MessageArgs) => {
 		log.info(`examplePlugin.onModMessage from ${args.userState.username}`);
 	},
 
-	onBroadcasterMessage: (args, actions) => {
+	onBroadcasterMessage: (args: MessageArgs, actions) => {
 		log.info(
 			`examplePlugin.onBroadcasterMessage from ${args.userState.username}`
 		);
 		actions.say('Hello from example plugin!');
 	},
 
-	onSubscriberMessage: (args) => {
+	onSubscriberMessage: (args: MessageArgs) => {
 		log.info(
 			`examplePlugin.onSubscriberMessage from ${args.userState.username}`
 		);

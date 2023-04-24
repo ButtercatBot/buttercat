@@ -1,7 +1,7 @@
 import { Client, client } from 'tmi.js';
-import { getUserRole } from './utils';
-import { MessageArgs, Plugin, PluginActions } from './plugin';
+import { Plugin, PluginActions } from './plugin';
 import { getLogger } from '@buttercatbot/logger';
+import { mapMessageArgs, mapSubscriptionArgs } from './types';
 
 interface BotOptions {
 	channels: string[];
@@ -22,7 +22,6 @@ export interface BasicBot {
 
 export class Bot implements BasicBot {
 	private readonly twitchClient: Client;
-	private clientLogger = getLogger({ name: 'tmi.js' });
 	private logger = getLogger({ name: 'core' });
 	private pluginList: Plugin[] = [];
 
@@ -93,6 +92,7 @@ export class Bot implements BasicBot {
 		init,
 		name,
 		onConnect,
+		onSubscription,
 	}: Plugin) {
 		if (init) {
 			this.logger.trace(`${name}: init`);
@@ -108,39 +108,70 @@ export class Bot implements BasicBot {
 			this.logger.trace(`${name}: setting up message handler`);
 			this.twitchClient.on(
 				'message',
-				async (channel, userState, message, self) => {
+				async (channel, userstate, message, self) => {
 					if (self) return;
+					const args = mapMessageArgs({ channel, userstate, message });
 
-					const role = getUserRole(userState);
-					const messageArgs: MessageArgs = { channel, userState, message };
 					const messageActions: PluginActions = {
 						say: (message: string) => this.say(channel, message),
 					};
 
 					if (onMessage) {
 						this.logger.trace(`${name}: onMessage`);
-						if (!onMessageIgnoreRoles?.includes(role)) {
-							this.logger.trace(`${name}: onMessage allowed role ${role}`);
-							await onMessage(messageArgs, messageActions);
+						const ignoredRole =
+							(onMessageIgnoreRoles?.filter((role) =>
+								args.userState.roles.includes(role)
+							)?.length ?? 0) > 0 ?? false;
+
+						if (!ignoredRole) {
+							this.logger.trace(
+								`${name}: onMessage allowed role ${args.userState.roles}`
+							);
+							await onMessage(args, messageActions);
 						} else {
-							this.logger.trace(`${name}: onMessage ignored role ${role}`);
+							this.logger.trace(
+								`${name}: onMessage ignored role ${args.userState.roles}`
+							);
 						}
 					}
 
-					if (onModMessage && role === 'mod') {
+					if (onModMessage && args.userState.mod) {
 						this.logger.trace(`${name}: onModMessage`);
-						await onModMessage(messageArgs, messageActions);
+						await onModMessage(args, messageActions);
 					}
 
-					if (onSubscriberMessage && role === 'subscriber') {
+					if (onSubscriberMessage && args.userState.subscriber) {
 						this.logger.trace(`${name}: onSubscriberMessage`);
-						await onSubscriberMessage(messageArgs, messageActions);
+						await onSubscriberMessage(args, messageActions);
 					}
 
-					if (onBroadcasterMessage && role === 'broadcaster') {
+					if (onBroadcasterMessage && args.userState.broadcaster) {
 						this.logger.trace(`${name}: onBroadcasterMessage`);
-						await onBroadcasterMessage(messageArgs, messageActions);
+						await onBroadcasterMessage(args, messageActions);
 					}
+				}
+			);
+		}
+
+		if (onSubscription) {
+			this.logger.trace(`${name}: onSubscription`);
+
+			this.twitchClient.on(
+				'subscription',
+				async (channel, username, methods, message, userstate) => {
+					const args = mapSubscriptionArgs({
+						channel,
+						username,
+						methods,
+						message,
+						userstate,
+					});
+
+					const messageActions: PluginActions = {
+						say: (message: string) => this.say(channel, message),
+					};
+
+					await onSubscription(args, messageActions);
 				}
 			);
 		}
