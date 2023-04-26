@@ -9,7 +9,7 @@ export default function Home() {
 	return (
 		<main className="flex-1 md:grid md:grid-cols-2 md:grid-rows-none place-content-center container">
 			<div className={'p-8 flex flex-col justify-evenly gap-8'}>
-				<h1 className="font-display text-3xl font-extrabold text-black dark:text-white sm:text-5xl xl:text-7xl">
+				<h1 className="font-display text-3xl  text-black dark:text-white sm:text-5xl xl:text-7xl">
 					A modular, extensible, and easy to set up Twitch bot
 				</h1>
 				<div className={'flex flex-col gap-4'}>

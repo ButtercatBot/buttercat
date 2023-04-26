@@ -4,12 +4,11 @@ import './global.css';
 
 import { Metadata } from 'next';
 import { cn } from '@/lib/utils';
-import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from '@/components/theme-provider';
 import StyleSwitcher from '@/components/style-switcher';
 import { siteConfig } from '@/config/site';
-import { fontSans } from '@/lib/fonts';
+import { fontDisplay, fontLogo, fontMono, fontSans } from '@/lib/fonts';
 import { SiteHeader } from '@/components/site-header';
 
 export const metadata: Metadata = {
@@ -39,19 +38,24 @@ export const metadata: Metadata = {
 	},
 };
 
-const inter = Inter({ subsets: ['latin'] });
-
 export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" suppressHydrationWarning className={`${inter.className}`}>
+		<html
+			lang="en"
+			suppressHydrationWarning
+			className={`${fontSans.className} ${fontDisplay.className} ${fontLogo.className} ${fontMono.className}`}
+		>
 			<body
 				className={cn(
 					'min-h-screen bg-background font-sans antialiased scroll-smooth',
 					fontSans.variable,
+					fontDisplay.variable,
+					fontLogo.variable,
+					fontMono.variable,
 					process.env.NODE_ENV === 'production' ? '' : 'debug-screens'
 				)}
 			>

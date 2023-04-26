@@ -5,9 +5,11 @@ export default function HeaderLogo() {
 	return (
 		<NavigationLink
 			href={'/'}
-			className={'hidden font-bold sm:inline-block mr-4'}
+			className={
+				'hidden text-2xl font-normal sm:inline-block mr-4 font-logo hover:text-accent dark:hover:text-accent'
+			}
 		>
-			Buttercat
+			buttercat
 		</NavigationLink>
 	);
 }

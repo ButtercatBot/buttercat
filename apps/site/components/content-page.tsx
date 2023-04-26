@@ -23,20 +23,22 @@ export default function ContentPage({
 		<main className="relative py-6 lg:gap-10 lg:py-8">
 			<div className="mx-auto w-full min-w-0">
 				<div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
-					<div className="overflow-hidden text-ellipsis whitespace-nowrap">
+					<div className="overflow-hidden text-ellipsis whitespace-nowrap font-display">
 						{type}
 					</div>
 					<ChevronRight className="h-4 w-4" />
-					<div className="font-medium text-foreground">
+					<div className="font-medium text-foreground font-display">
 						{title ? title : 'Introduction'}
 					</div>
 				</div>
 				<div className="space-y-2">
-					<h1 className={cn('scroll-m-20 text-4xl font-bold tracking-tight')}>
+					<h1
+						className={cn('scroll-m-20 text-5xl tracking-tight font-display')}
+					>
 						{title ? title : 'Introduction'}
 					</h1>
 					{description && (
-						<p className="text-lg text-muted-foreground">
+						<p className="text-lg text-muted-foreground font-display font-normal">
 							<Balancer>{description}</Balancer>
 						</p>
 					)}

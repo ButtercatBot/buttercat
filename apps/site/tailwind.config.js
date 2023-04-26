@@ -55,6 +55,8 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: ['var(--font-sans)', ...fontFamily.sans],
+				display: ['var(--font-display)', ...fontFamily.sans],
+				logo: ['var(--font-logo)', ...fontFamily.sans],
 			},
 			keyframes: {
 				'accordion-down': {
@@ -75,5 +77,6 @@ module.exports = {
 	plugins: [
 		require('tailwindcss-animate'),
 		require('tailwindcss-debug-screens'),
+		require('@catppuccin/tailwindcss'),
 	],
 };

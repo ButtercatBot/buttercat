@@ -132,7 +132,7 @@ const NavigationLink = React.forwardRef<
 				ref={ref}
 				href={href}
 				className={cn(
-					'text-sm font-medium transition-colors dark:hover:text-primary hover:text-foreground',
+					'text-md transition-colors dark:hover:text-primary hover:text-foreground font-display',
 					selected
 						? cn('text-foreground', selectedClassName)
 						: 'text-muted-foreground',
