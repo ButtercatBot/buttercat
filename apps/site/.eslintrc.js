@@ -3,6 +3,7 @@ module.exports = {
 	plugins: ['@next/eslint-plugin-next'],
 	rules: {
 		'react/no-unescaped-entities': 'off',
+    '@next/next/no-html-link-for-pages': ['off'],
 	},
 	settings: {
 		next: {

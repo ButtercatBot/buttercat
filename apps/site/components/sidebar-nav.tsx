@@ -20,7 +20,9 @@ export default function SidebarNav(props: SidebarNavProps) {
 
 	return (
 		<div key={group.title} className={'mb-2 p-1'}>
-			<p className={'font-bold text-lg border-b mb-2'}>{group.title}</p>
+			<p className={'font-bold text-lg border-b mb-2 font-display'}>
+				{group.title}
+			</p>
 			<ul>
 				{group.items.map((item) => {
 					return (
@@ -32,7 +34,7 @@ export default function SidebarNav(props: SidebarNavProps) {
 									'flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:underline hover:text-foreground'
 								}
 								selectedClassName={cn(
-									'flex w-full items-center rounded-md border px-2 py-1.5 hover:underline font-medium bg-accent border-border text-accent-foreground hover:text-foreground dark:hover:text-background'
+									'flex w-full items-center rounded-md border px-2 py-1.5 hover:underline font-medium bg-accent border-border text-accent-foreground dark:hover:text-background'
 								)}
 							>
 								{item.title}

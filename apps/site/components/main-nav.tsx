@@ -9,11 +9,12 @@ import HeaderLogo from '@/components/header-logo';
 
 export function MainNav() {
 	const pathname = usePathname();
+	if (!pathname) return null;
 
 	return (
 		<div className="mr-4 hidden md:flex">
 			<HeaderLogo />
-			<nav className="flex items-center space-x-6 text-sm font-medium">
+			<nav className="flex items-center space-x-6 font-medium">
 				<NavigationLink href="/docs" selected={pathname.startsWith('/docs')}>
 					Documentation
 				</NavigationLink>

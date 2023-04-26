@@ -9,7 +9,7 @@ const components = {
 	h1: ({ className, ...props }) => (
 		<h1
 			className={cn(
-				'mt-2 scroll-m-20 text-4xl font-bold tracking-tight',
+				'mt-2 scroll-m-20 text-4xl font-bold tracking-tight font-display',
 				className
 			)}
 			{...props}
@@ -18,7 +18,7 @@ const components = {
 	h2: ({ className, ...props }) => (
 		<h2
 			className={cn(
-				'mt-10 scroll-m-20 border-b pb-1 text-3xl font-semibold tracking-tight first:mt-0',
+				'mt-10 scroll-m-20 border-b pb-1 text-3xl  tracking-tight first:mt-0 font-display',
 				className
 			)}
 			{...props}
@@ -27,7 +27,7 @@ const components = {
 	h3: ({ className, ...props }) => (
 		<h3
 			className={cn(
-				'mt-8 scroll-m-20 text-2xl font-semibold tracking-tight',
+				'mt-8 scroll-m-20 text-2xl  tracking-tight font-display',
 				className
 			)}
 			{...props}
@@ -36,7 +36,7 @@ const components = {
 	h4: ({ className, ...props }) => (
 		<h4
 			className={cn(
-				'mt-8 scroll-m-20 text-xl font-semibold tracking-tight',
+				'mt-8 scroll-m-20 text-xl  tracking-tight font-display',
 				className
 			)}
 			{...props}
@@ -45,7 +45,7 @@ const components = {
 	h5: ({ className, ...props }) => (
 		<h5
 			className={cn(
-				'mt-8 scroll-m-20 text-lg font-semibold tracking-tight',
+				'mt-8 scroll-m-20 text-lg  tracking-tight font-display',
 				className
 			)}
 			{...props}
@@ -54,7 +54,7 @@ const components = {
 	h6: ({ className, ...props }) => (
 		<h6
 			className={cn(
-				'mt-8 scroll-m-20 text-base font-semibold tracking-tight',
+				'mt-8 scroll-m-20 text-base  tracking-tight font-display',
 				className
 			)}
 			{...props}
@@ -134,7 +134,7 @@ const components = {
 	pre: ({ className, ...props }) => (
 		<pre
 			className={cn(
-				'mt-6 mb-4 overflow-x-auto rounded-lg bg-slate-900 py-4 break-words',
+				'mt-6 mb-4 overflow-x-auto rounded-lg bg-slate-900 py-4 break-words font-mono',
 				className
 			)}
 			{...props}
