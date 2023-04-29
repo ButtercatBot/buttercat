@@ -11,6 +11,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Separator } from '@/components/ui/separator';
 import { NavigationLink } from '@/components/ui/navigation-menu';
+import HeaderLogo from '@/components/header-logo';
 
 export function MobileNav() {
 	const pathname = usePathname();
@@ -28,13 +29,7 @@ export function MobileNav() {
 				</Button>
 			</SheetTrigger>
 			<SheetContent size="xl" position="left" className="pr-0">
-				<MobileLink
-					href="/"
-					className="flex items-center text-foreground"
-					onOpenChange={setOpen}
-				>
-					Buttercat
-				</MobileLink>
+				<HeaderLogo className={'flex'} />
 				<ScrollArea className="my-4 h-[calc(100vh-4rem)] pb-16 pl-6">
 					<div className="flex flex-col space-y-3">
 						{siteConfig.mainNav?.map(
@@ -45,7 +40,7 @@ export function MobileNav() {
 										href={item.href}
 										onOpenChange={setOpen}
 										className={
-											pathname.startsWith(item.href)
+											pathname?.startsWith(item.href)
 												? 'text-foreground'
 												: 'text-foreground/60'
 										}

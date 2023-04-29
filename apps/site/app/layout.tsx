@@ -19,8 +19,8 @@ export const metadata: Metadata = {
 	description: siteConfig.description,
 	keywords: ['twitch', 'streamer', 'bot', 'stream', 'chat', 'twitchtv', 'ttv'],
 	themeColor: [
-		{ media: '(prefers-color-scheme: light)', color: 'white' },
-		{ media: '(prefers-color-scheme: dark)', color: 'black' },
+		{ media: '(prefers-color-scheme: light)', color: '#F0F1F5' },
+		{ media: '(prefers-color-scheme: dark)', color: '#1E1E2E' },
 	],
 	openGraph: {
 		type: 'website',
@@ -29,12 +29,23 @@ export const metadata: Metadata = {
 		title: siteConfig.name,
 		description: siteConfig.description,
 		siteName: siteConfig.name,
-		images: [],
+		images: [
+			{
+				url: siteConfig.logoUrl,
+				alt: 'ButterCat Logo',
+			},
+		],
 	},
 	twitter: {
 		title: siteConfig.name,
 		description: siteConfig.description,
 		creator: siteConfig.creator.twitter,
+		images: [
+			{
+				url: siteConfig.logoUrl,
+				alt: 'ButterCat Logo',
+			},
+		],
 	},
 };
 

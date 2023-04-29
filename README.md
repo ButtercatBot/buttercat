@@ -1,4 +1,6 @@
-<h1 align="center"><a href="https://buttercat.dev">Buttercat</a></h1>
+<div align="center">
+<img src="./assets/text_logo.png" alt="Buttercat"/>
+</div>
 
 <div align="center">
 

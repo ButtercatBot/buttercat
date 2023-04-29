@@ -1,9 +1,11 @@
 import { FileTextIcon, LibraryIcon, PuzzleIcon } from 'lucide-react';
+import textLogo from '@/assets/text_logo.png';
 
 export const siteConfig = {
 	name: 'Buttercat',
 	url: 'https://buttercat.dev',
 	description: 'A modular and extensible Twitch bot',
+	logoUrl: textLogo.src,
 	links: {
 		github: 'https://github.com/buttercatbot/buttercat',
 	},
