@@ -8,15 +8,15 @@
 		--foreground: 234 16% 35%;
 
 		--muted: 223 16% 83%;
-		--muted-foreground: 233 10% 47%;
+		--muted-foreground: 233 13% 41%;
 
-		--popover: 223 16% 83%;
+		--popover: 220 21% 89%;
 		--popover-foreground: 234 16% 35%;
 
 		--input: 183 74% 35;
 		--border: 35 77% 49%;
 
-		--card: 223 16% 83%;
+		--card: 220 22% 92%;
 		--card-foreground: 234 16% 35%;
 
 		--primary: 266 85% 58%;
@@ -65,7 +65,6 @@
 		--destructive-foreground: 210 40% 98%;
 
 		--ring: 267 84% 81%;
-
 	}
 }
 
@@ -75,6 +74,6 @@
 	}
 	body {
 		@apply bg-background text-foreground;
-		font-feature-settings: "rlig" 1, "calt" 1;
+		font-feature-settings: 'rlig' 1, 'calt' 1;
 	}
 }
