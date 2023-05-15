@@ -5,4 +5,6 @@ export default defineConfig((opts) => ({
 	clean: !opts.watch,
 	outDir: 'dist',
 	target: 'es2017',
+	// dts: true,
+	onSuccess: 'tsc --emitDeclarationOnly --declaration',
 }));

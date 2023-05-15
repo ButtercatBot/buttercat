@@ -1,8 +1,15 @@
 {
 	"extends": "@buttercatbot/tsconfig/base.json",
 	"compilerOptions": {
-		"types": ["vitest/globals"],
+		"outDir": "./dist",
+		"types": [
+			"vitest/globals"
+		]
 	},
-	"include": ["*.ts", "src"],
-	"exclude": ["dist"],
+	"include": [
+		"src"
+	],
+	"exclude": [
+		"dist"
+	]
 }

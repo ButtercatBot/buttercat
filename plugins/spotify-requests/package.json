@@ -13,7 +13,7 @@
 		"README.md"
 	],
 	"main": "dist/index.js",
-	"types": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
 		"start-standalone": "node dist/standalone.js",
 		"build": "tsup",
