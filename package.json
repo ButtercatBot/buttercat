@@ -19,7 +19,7 @@
 	"devDependencies": {
 		"@catppuccin/tailwindcss": "^0.1.1",
 		"husky": "^8.0.3",
-		"turbo": "^1.9.3"
+		"turbo": "^1.9.5"
 	},
 	"packageManager": "npm@8.19.4",
 	"engines": {
