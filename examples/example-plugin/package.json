@@ -2,17 +2,26 @@
 	"name": "@buttercatbot/example-plugin",
 	"private": true,
 	"version": "1.0.0",
+	"files": [
+		"dist",
+		"package.json",
+		"LICENSE",
+		"README.md"
+	],
 	"main": "dist/index.js",
-	"module": "dist/esm/index.js",
+	"types": "dist/index.js",
 	"scripts": {
 		"lint": "eslint \"**/*.ts*\"",
-		"build": "rm -rf dist/ && tsc"
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"eslint": "^7.32.0",
 		"@buttercatbot/eslint-config": "*",
 		"@buttercatbot/tsconfig": "*",
-		"typescript": "5.0.4"
+		"typescript": "5.0.4",
+		"tsup": "^6.7.0"
 	},
 	"dependencies": {
 		"@buttercatbot/logger": "*",

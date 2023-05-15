@@ -1,21 +1,32 @@
 {
 	"compilerOptions": {
 		"incremental": true,
-		"target": "es2017",
-		"moduleResolution": "node",
-		"module": "commonjs",
 		"declaration": true,
 		"inlineSourceMap": true,
 		"esModuleInterop": true,
-		"resolveJsonModule": true,
 		"strict": true,
 		"traceResolution": false,
 		"listEmittedFiles": false,
 		"listFiles": false,
 		"pretty": true,
+		"outDir": "./dist",
+		"noEmit": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"removeComments": true,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+		"useDefineForClassFields": true,
+		"target": "ES2020",
+		"module": "Node16",
+		"moduleResolution": "nodenext",
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"checkJs": true,
 		"lib": [
 			"es2017",
-			"dom"
+			"DOM",
+			"DOM.Iterable"
 		],
 		"types": [
 			"node"

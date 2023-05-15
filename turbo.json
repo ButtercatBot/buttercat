@@ -4,6 +4,10 @@
 		"**/.env.*local"
 	],
 	"pipeline": {
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
 		"build": {
 			"dependsOn": [
 				"^build"
@@ -21,9 +25,17 @@
 		"test": {
 			"dependsOn": [
 				"^build"
-			]
+			],
+			"outputs": []
 		},
 		"lint": {
+			"dependsOn": ["build"],
+			"outputs": []
+		},
+		"typecheck": {
+			"dependsOn": ["build"],
+			"outputs": [],
+			"cache": true
 		}
 	}
 }

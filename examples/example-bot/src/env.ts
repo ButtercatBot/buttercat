@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 import { z } from 'zod';
-import { log } from './index';
+import { log } from './bin';
 
 dotenv.config();
 

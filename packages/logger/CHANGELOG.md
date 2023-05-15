@@ -1,5 +1,11 @@
 # @buttercatbot/logger
 
+## 0.1.0
+
+### Minor Changes
+
+- 96da0b2: Use tsup for bundling
+
 ## 0.0.10
 
 ### Patch Changes

@@ -2,12 +2,12 @@
 	"name": "@buttercatbot/example-bot",
 	"version": "1.0.0",
 	"private": true,
-	"main": "dist/index.js",
-	"module": "dist/esm/index.js",
 	"scripts": {
-		"lint": "eslint \"**/*.ts*\"",
-		"build": "rm -rf dist/ && tsc",
-		"start": "ts-node src/index.ts"
+		"start": "node dist/bin.js",
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"lint": "eslint . --ext .ts",
+		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
 		"@buttercatbot/core": "*",
@@ -18,8 +18,8 @@
 		"dotenv": "^16.0.3",
 		"eslint": "^7.32.0",
 		"@buttercatbot/eslint-config": "*",
-		"ts-node": "^10.9.1",
 		"@buttercatbot/tsconfig": "*",
-		"typescript": "5.0.4"
+		"typescript": "5.0.4",
+		"tsup": "^6.7.0"
 	}
 }

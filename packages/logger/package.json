@@ -1,22 +1,24 @@
 {
 	"name": "@buttercatbot/logger",
-	"version": "0.0.10",
+	"version": "0.1.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/buttercatbot/buttercat",
 		"directory": "packages/logger"
 	},
 	"files": [
-		"dist"
+		"dist",
+		"package.json",
+		"LICENSE",
+		"README.md"
 	],
 	"main": "dist/index.js",
-	"typings": "dist/index.d.ts",
-	"module": "dist/esm/index.js",
+	"types": "dist/index.js",
 	"scripts": {
 		"lint": "eslint \"**/*.ts*\"",
-		"build": "rm -rf dist/ && npm run build:esm && npm run build:cjs",
-		"build:esm": "tsc -p tsconfig.module.json",
-		"build:cjs": "tsc -p tsconfig.json"
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
 		"tslog": "^4.8.2"
@@ -24,6 +26,7 @@
 	"devDependencies": {
 		"eslint": "^7.32.0",
 		"@buttercatbot/tsconfig": "*",
-		"typescript": "5.0.4"
+		"typescript": "5.0.4",
+		"tsup": "^6.7.0"
 	}
 }

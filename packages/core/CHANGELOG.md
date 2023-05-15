@@ -1,5 +1,16 @@
 # @buttercatbot/core
 
+## 0.3.0
+
+### Minor Changes
+
+- 96da0b2: Use tsup for bundling
+
+### Patch Changes
+
+- Updated dependencies [96da0b2]
+  - @buttercatbot/logger@0.1.0
+
 ## 0.2.0
 
 ### Minor Changes

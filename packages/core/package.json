@@ -1,20 +1,25 @@
 {
 	"name": "@buttercatbot/core",
-	"version": "0.2.0",
-	"main": "dist/index.js",
-	"typings": "dist/index.d.ts",
-	"module": "dist/esm/index.js",
+	"version": "0.3.0",
+	"files": [
+		"dist",
+		"package.json",
+		"LICENSE",
+		"README.md"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/buttercatbot/buttercat",
 		"directory": "packages/core"
 	},
+	"main": "dist/index.js",
+	"types": "dist/index.js",
 	"scripts": {
 		"lint": "eslint \"**/*.ts*\"",
-		"build": "rm -rf dist/ && npm run build:esm && npm run build:cjs",
-		"build:esm": "tsc -p tsconfig.esm.json",
-		"build:cjs": "tsc -p tsconfig.cjs.json",
-		"test": "vitest run"
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"test": "vitest run",
+		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@buttercatbot/tsconfig": "*",
@@ -23,7 +28,8 @@
 		"eslint": "^7.32.0",
 		"typescript": "5.0.4",
 		"vite": "^4.3.1",
-		"vitest": "^0.30.1"
+		"vitest": "^0.30.1",
+		"tsup": "^6.7.0"
 	},
 	"dependencies": {
 		"@buttercatbot/logger": "*",
