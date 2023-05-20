@@ -14,6 +14,7 @@
 		"./package.json": "./package.json"
 	},
 	"scripts": {
+		"clean": "rm -rf dist",
 		"build": "tsup src/index.ts --format cjs,esm --dts",
 		"typecheck": "tsc",
 		"release": "turbo build typecheck lint test && changeset publish",

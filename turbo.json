@@ -4,6 +4,9 @@
 		"**/.env.*local"
 	],
 	"pipeline": {
+		"clean": {
+			"cache": false
+		},
 		"dev": {
 			"cache": false,
 			"persistent": true
@@ -33,9 +36,7 @@
 			"outputs": []
 		},
 		"typecheck": {
-			"dependsOn": ["build"],
-			"outputs": [],
-			"cache": true
+			"outputs": []
 		}
 	}
 }
