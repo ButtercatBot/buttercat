@@ -1,9 +1,9 @@
 import { Bot } from '@buttercatbot/core';
 import * as dotenv from 'dotenv';
 
-import SpotifyRequestsPlugin from './index';
-import { Config, ConfigSchema } from './types/config';
-import { log } from './utils';
+import SpotifyRequestsPlugin from '../index';
+import { Config, ConfigSchema } from '../types/config';
+import { log } from '../utils';
 import { SafeParseError } from 'zod';
 
 dotenv.config();

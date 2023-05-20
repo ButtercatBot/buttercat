@@ -1,34 +1,16 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"compilerOptions": {
-		"declaration": true,
+		"target": "es2016",
+		"module": "commonjs",
+		"noEmit": true,
 		"esModuleInterop": true,
-		"strict": true,
-		"traceResolution": false,
-		"listEmittedFiles": false,
-		"listFiles": false,
-		"pretty": true,
-		"noEmit": false,
-		"declarationMap": true,
-		"inlineSourceMap": true,
-		"removeComments": true,
 		"forceConsistentCasingInFileNames": true,
-		"skipLibCheck": true,
-		"useDefineForClassFields": true,
-		"target": "ES2020",
-		"module": "Node16",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"allowJs": true,
-		"checkJs": true,
-		"lib": [
-			"es2017",
-			"DOM",
-			"DOM.Iterable"
-		],
-		"types": [
-			"node"
-		]
+		"strict": true,
+		"skipLibCheck": true
 	},
-	"compileOnSave": false
+	"include": [
+		"src",
+		"tests"
+	]
 }
