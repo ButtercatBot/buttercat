@@ -1,5 +1,12 @@
 # @buttercatbot/logger
 
+## 0.2.0
+
+### Minor Changes
+
+- 0631400: Adding ts mappings to tsup config
+- ac3695e: Improve build and packaging
+
 ## 0.1.0
 
 ### Minor Changes

@@ -1,5 +1,19 @@
 # @buttercatbot/spotify-requests
 
+## 0.2.0
+
+### Minor Changes
+
+- 0631400: Adding ts mappings to tsup config
+- ac3695e: Improve build and packaging
+
+### Patch Changes
+
+- Updated dependencies [0631400]
+- Updated dependencies [ac3695e]
+  - @buttercatbot/logger@0.2.0
+  - @buttercatbot/core@0.4.0
+
 ## 0.1.0
 
 ### Minor Changes
