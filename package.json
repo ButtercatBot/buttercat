@@ -8,22 +8,23 @@
 		"apps/*"
 	],
 	"scripts": {
+		"clean": "turbo clean",
 		"build": "turbo build",
 		"dev": "turbo dev",
 		"lint": "turbo lint",
 		"test": "turbo test",
 		"prepare": "husky install",
 		"changeset": "changeset",
-		"publish-packages": "turbo run build lint test && changeset version && changeset publish"
+		"publish-packages": "turbo run clean build lint test && changeset version && changeset publish"
 	},
 	"devDependencies": {
 		"@catppuccin/tailwindcss": "^0.1.1",
 		"husky": "^8.0.3",
-		"turbo": "^1.9.3"
+		"turbo": "^1.9.5"
 	},
-	"packageManager": "npm@8.19.4",
+	"packageManager": "npm@9.5.0",
 	"engines": {
-		"node": "20",
+		"node": "18",
 		"npm": "9"
 	},
 	"dependencies": {

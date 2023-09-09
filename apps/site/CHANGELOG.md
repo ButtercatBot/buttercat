@@ -1,5 +1,11 @@
 # @buttercatbot/site
 
+## 0.3.0
+
+### Minor Changes
+
+- ac3695e: Improve build and packaging
+
 ## 0.2.1
 
 ### Patch Changes

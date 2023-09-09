@@ -12,11 +12,15 @@
   ],
   "compilerOptions": {
     "baseUrl": ".",
-    "plugins": [{
-      "name": "next"
-    }],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
-      "contentlayer/generated": ["./.contentlayer/generated"],
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
+      ],
       "@/*": [
         "./*"
       ]
@@ -24,6 +28,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "moduleResolution": "node"
   }
 }

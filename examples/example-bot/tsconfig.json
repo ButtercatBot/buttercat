@@ -1,9 +1,4 @@
 {
 	"extends": "@buttercatbot/tsconfig/base.json",
-	"compilerOptions": {
-		"outDir": "dist/cjs"
-	},
-	"include": [
-		"src/**/*.ts"
-	],
+	"include": ["src"]
 }

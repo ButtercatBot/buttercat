@@ -1,25 +1,16 @@
 {
+	"$schema": "https://json.schemastore.org/tsconfig",
 	"compilerOptions": {
-		"incremental": true,
-		"target": "es2017",
-		"moduleResolution": "node",
+		"target": "es2016",
 		"module": "commonjs",
-		"declaration": true,
-		"inlineSourceMap": true,
+		"noEmit": true,
 		"esModuleInterop": true,
-		"resolveJsonModule": true,
+		"forceConsistentCasingInFileNames": true,
 		"strict": true,
-		"traceResolution": false,
-		"listEmittedFiles": false,
-		"listFiles": false,
-		"pretty": true,
-		"lib": [
-			"es2017",
-			"dom"
-		],
-		"types": [
-			"node"
-		]
+		"skipLibCheck": true
 	},
-	"compileOnSave": false
+	"include": [
+		"src",
+		"tests"
+	]
 }

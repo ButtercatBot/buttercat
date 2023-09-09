@@ -22,9 +22,12 @@ export const metadata: Metadata = {
 		{ media: '(prefers-color-scheme: light)', color: '#F0F1F5' },
 		{ media: '(prefers-color-scheme: dark)', color: '#1E1E2E' },
 	],
+	alternates: {
+		canonical: siteConfig.url,
+	},
 	openGraph: {
 		type: 'website',
-		locale: 'en_US',
+		locale: 'en_GB',
 		url: siteConfig.url,
 		title: siteConfig.name,
 		description: siteConfig.description,
